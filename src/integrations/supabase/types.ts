@@ -14,7 +14,259 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      certificates: {
+        Row: {
+          certificate_number: string
+          course_id: string
+          id: string
+          issued_at: string | null
+          user_id: string
+        }
+        Insert: {
+          certificate_number: string
+          course_id: string
+          id?: string
+          issued_at?: string | null
+          user_id: string
+        }
+        Update: {
+          certificate_number?: string
+          course_id?: string
+          id?: string
+          issued_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "certificates_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_messages: {
+        Row: {
+          course_id: string | null
+          created_at: string | null
+          id: string
+          message: string
+          user_id: string
+        }
+        Insert: {
+          course_id?: string | null
+          created_at?: string | null
+          id?: string
+          message: string
+          user_id: string
+        }
+        Update: {
+          course_id?: string | null
+          created_at?: string | null
+          id?: string
+          message?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_messages_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      courses: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          description: string | null
+          duration: string | null
+          id: string
+          image_url: string | null
+          level: string | null
+          modules: number | null
+          price: number
+          rating: number | null
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          duration?: string | null
+          id?: string
+          image_url?: string | null
+          level?: string | null
+          modules?: number | null
+          price: number
+          rating?: number | null
+          title: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          duration?: string | null
+          id?: string
+          image_url?: string | null
+          level?: string | null
+          modules?: number | null
+          price?: number
+          rating?: number | null
+          title?: string
+        }
+        Relationships: []
+      }
+      enrollments: {
+        Row: {
+          completed: boolean | null
+          completed_at: string | null
+          course_id: string
+          enrolled_at: string | null
+          id: string
+          payment_id: string | null
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean | null
+          completed_at?: string | null
+          course_id: string
+          enrolled_at?: string | null
+          id?: string
+          payment_id?: string | null
+          user_id: string
+        }
+        Update: {
+          completed?: boolean | null
+          completed_at?: string | null
+          course_id?: string
+          enrolled_at?: string | null
+          id?: string
+          payment_id?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "enrollments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      payments: {
+        Row: {
+          amount: number
+          course_id: string
+          created_at: string | null
+          currency: string | null
+          id: string
+          status: string
+          stripe_payment_id: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          course_id: string
+          created_at?: string | null
+          currency?: string | null
+          id?: string
+          status: string
+          stripe_payment_id: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          course_id?: string
+          created_at?: string | null
+          currency?: string | null
+          id?: string
+          status?: string
+          stripe_payment_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          email: string
+          full_name: string | null
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id: string
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      video_progress: {
+        Row: {
+          completed: boolean | null
+          course_id: string
+          duration: number | null
+          id: string
+          last_watched: string | null
+          module_id: string
+          user_id: string
+          video_position: number | null
+        }
+        Insert: {
+          completed?: boolean | null
+          course_id: string
+          duration?: number | null
+          id?: string
+          last_watched?: string | null
+          module_id: string
+          user_id: string
+          video_position?: number | null
+        }
+        Update: {
+          completed?: boolean | null
+          course_id?: string
+          duration?: number | null
+          id?: string
+          last_watched?: string | null
+          module_id?: string
+          user_id?: string
+          video_position?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "video_progress_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
