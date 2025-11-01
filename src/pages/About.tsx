@@ -1,0 +1,197 @@
+import { motion } from "framer-motion";
+import { Target, Users, Award, TrendingUp } from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Card } from "@/components/ui/card";
+
+const stats = [
+  { icon: Users, value: "500K+", label: "Active Learners" },
+  { icon: Award, value: "50+", label: "Expert Courses" },
+  { icon: TrendingUp, value: "95%", label: "Success Rate" },
+  { icon: Target, value: "24/7", label: "Support" },
+];
+
+const values = [
+  {
+    title: "Accessible Learning",
+    description:
+      "We believe AI education should be accessible to everyone, regardless of background or experience level.",
+  },
+  {
+    title: "Practical Skills",
+    description:
+      "Our courses focus on hands-on projects and real-world applications, not just theory.",
+  },
+  {
+    title: "Community Driven",
+    description:
+      "Join a thriving community of AI enthusiasts, collaborate on projects, and grow together.",
+  },
+  {
+    title: "Continuous Innovation",
+    description:
+      "We constantly update our content to reflect the latest developments in AI and machine learning.",
+  },
+];
+
+const About = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 bg-gradient-to-b from-primary to-secondary">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center space-y-4 max-w-3xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground">
+              About <span className="text-accent">FaxLab AI</span>
+            </h1>
+            <p className="text-lg text-primary-foreground/80">
+              Empowering the next generation of AI innovators through accessible,
+              hands-on education.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gradient">
+                Our Mission
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                FaxLab AI was founded by a team of AI pioneers and educators who recognized
+                a critical gap in accessible, practical AI education. We're on a mission to
+                democratize artificial intelligence learning, making it available to students,
+                professionals, and entrepreneurs worldwide.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Our platform combines cutting-edge curriculum with hands-on projects,
+                expert mentorship, and a supportive community to ensure every learner can
+                master AI skills and transform their career prospects.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-6"
+            >
+              {stats.map((stat, index) => (
+                <Card
+                  key={index}
+                  className="p-6 text-center hover-lift bg-gradient-to-br from-card to-muted border-accent/20"
+                >
+                  <stat.icon className="h-8 w-8 mx-auto mb-3 text-accent" />
+                  <div className="text-3xl font-bold text-gradient">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                </Card>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 space-y-4"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient">
+              Our Core Values
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              The principles that guide everything we do at FaxLab AI.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="p-6 hover-lift border-accent/20 h-full">
+                  <h3 className="text-xl font-semibold mb-3 text-accent">
+                    {value.title}
+                  </h3>
+                  <p className="text-muted-foreground">{value.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto space-y-8"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient text-center">
+              Our Story
+            </h2>
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
+              <p>
+                FaxLab AI was born out of a simple observation: artificial intelligence is
+                transforming every industry, yet quality AI education remains inaccessible
+                to most people. Our founder, Dr. Elena Voss, a former researcher at leading
+                AI labs, witnessed this gap firsthand while mentoring aspiring AI
+                practitioners.
+              </p>
+              <p>
+                In 2023, Dr. Voss assembled a team of AI experts, educators, and engineers
+                to create a learning platform that would bridge this divide. The result is
+                FaxLab AI – a comprehensive ecosystem that combines world-class curriculum,
+                hands-on projects, expert mentorship, and a thriving community of learners.
+              </p>
+              <p>
+                Today, FaxLab AI serves over 500,000 learners across 150 countries,
+                helping individuals from all backgrounds master AI skills and unlock new
+                career opportunities. Our learners have gone on to work at leading tech
+                companies, start their own AI ventures, and contribute to groundbreaking
+                research.
+              </p>
+              <p className="text-accent font-semibold">
+                Join us on our mission to democratize AI education and shape the future of
+                technology, one learner at a time.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default About;
