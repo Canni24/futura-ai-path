@@ -3,6 +3,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Clock, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 
 import aiFundamentals from "@/assets/course-ai-fundamentals.jpg";
 import generativeAI from "@/assets/course-generative-ai.jpg";
@@ -82,6 +84,26 @@ const courses = [
 
 const CoursesPreview = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleEnroll = (course: typeof courses[0]) => {
+    if (!user) {
+      toast.error("Please sign in to enroll in courses");
+      navigate("/auth");
+      return;
+    }
+    
+    navigate("/checkout", { 
+      state: { 
+        course: {
+          id: course.id,
+          title: course.title,
+          price: course.priceNum,
+          image: course.image
+        }
+      } 
+    });
+  };
   
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted">
@@ -141,16 +163,7 @@ const CoursesPreview = () => {
                   </div>
                   <Button 
                     className="w-full bg-accent text-primary hover:bg-accent-glow group"
-                    onClick={() => navigate("/checkout", { 
-                      state: { 
-                        course: {
-                          id: course.id,
-                          title: course.title,
-                          price: course.priceNum,
-                          image: course.image
-                        }
-                      } 
-                    })}
+                    onClick={() => handleEnroll(course)}
                   >
                     Enroll Now
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />

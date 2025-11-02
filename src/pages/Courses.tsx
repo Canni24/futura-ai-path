@@ -5,6 +5,8 @@ import { Search, Filter, Star, Clock, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -111,9 +113,29 @@ const allCourses = [
 
 const Courses = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
+
+  const handleEnroll = (course: typeof allCourses[0]) => {
+    if (!user) {
+      toast.error("Please sign in to enroll in courses");
+      navigate("/auth");
+      return;
+    }
+    
+    navigate("/checkout", { 
+      state: { 
+        course: {
+          id: course.id,
+          title: course.title,
+          price: course.price,
+          image: course.image
+        }
+      } 
+    });
+  };
 
   const filteredCourses = allCourses
     .filter((course) => {
@@ -257,16 +279,7 @@ const Courses = () => {
                         </div>
                         <Button 
                           className="w-full bg-accent text-primary hover:bg-accent-glow"
-                          onClick={() => navigate("/checkout", { 
-                            state: { 
-                              course: {
-                                id: course.id,
-                                title: course.title,
-                                price: course.price,
-                                image: course.image
-                              }
-                            } 
-                          })}
+                          onClick={() => handleEnroll(course)}
                         >
                           Enroll Now
                         </Button>
