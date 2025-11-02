@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Clock, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import aiFundamentals from "@/assets/course-ai-fundamentals.jpg";
 import generativeAI from "@/assets/course-generative-ai.jpg";
@@ -21,6 +21,7 @@ const courses = [
     rating: 4.8,
     reviews: 1250,
     price: "₹1,499",
+    priceNum: 1499,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const courses = [
     rating: 4.9,
     reviews: 980,
     price: "₹1,999",
+    priceNum: 1999,
   },
   {
     id: 3,
@@ -41,6 +43,7 @@ const courses = [
     rating: 4.7,
     reviews: 650,
     price: "₹999",
+    priceNum: 999,
   },
   {
     id: 4,
@@ -51,6 +54,7 @@ const courses = [
     rating: 4.9,
     reviews: 1500,
     price: "₹2,499",
+    priceNum: 2499,
   },
   {
     id: 5,
@@ -61,6 +65,7 @@ const courses = [
     rating: 4.6,
     reviews: 890,
     price: "₹1,299",
+    priceNum: 1299,
   },
   {
     id: 6,
@@ -71,10 +76,13 @@ const courses = [
     rating: 4.8,
     reviews: 720,
     price: "₹2,199",
+    priceNum: 2199,
   },
 ];
 
 const CoursesPreview = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4 lg:px-8">
@@ -131,7 +139,19 @@ const CoursesPreview = () => {
                       <span>{course.duration}</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-accent text-primary hover:bg-accent-glow group">
+                  <Button 
+                    className="w-full bg-accent text-primary hover:bg-accent-glow group"
+                    onClick={() => navigate("/checkout", { 
+                      state: { 
+                        course: {
+                          id: course.id,
+                          title: course.title,
+                          price: course.priceNum,
+                          image: course.image
+                        }
+                      } 
+                    })}
+                  >
                     Enroll Now
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
                   </Button>

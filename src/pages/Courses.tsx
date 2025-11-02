@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Filter, Star, Clock, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -109,6 +110,7 @@ const allCourses = [
 ];
 
 const Courses = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
@@ -253,7 +255,19 @@ const Courses = () => {
                             </div>
                           </div>
                         </div>
-                        <Button className="w-full bg-accent text-primary hover:bg-accent-glow">
+                        <Button 
+                          className="w-full bg-accent text-primary hover:bg-accent-glow"
+                          onClick={() => navigate("/checkout", { 
+                            state: { 
+                              course: {
+                                id: course.id,
+                                title: course.title,
+                                price: course.price,
+                                image: course.image
+                              }
+                            } 
+                          })}
+                        >
                           Enroll Now
                         </Button>
                       </div>
