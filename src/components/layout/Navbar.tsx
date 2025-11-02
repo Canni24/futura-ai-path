@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/faxlab-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +24,29 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-accent glow-effect"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative"
             >
-              FaxLab AI
+              <img 
+                src={logo} 
+                alt="FaxLab AI Logo" 
+                className="h-10 w-10 drop-shadow-lg"
+              />
+              <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 smooth-transition rounded-full" />
+            </motion.div>
+            <motion.div
+              whileHover={{ x: 2 }}
+              className="flex flex-col"
+            >
+              <span className="text-2xl font-bold text-primary-foreground tracking-tight leading-none">
+                FaxLab <span className="text-accent glow-effect">AI</span>
+              </span>
+              <span className="text-[10px] text-primary-foreground/60 tracking-wider uppercase">
+                AI Education Platform
+              </span>
             </motion.div>
           </Link>
 
