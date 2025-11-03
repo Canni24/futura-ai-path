@@ -146,8 +146,95 @@ const About = () => {
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Founder Section */}
       <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient text-center mb-12">
+              Meet Our Founder
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Founder Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative group"
+              >
+                <div className="relative overflow-hidden rounded-2xl border-2 border-accent/20 shadow-elegant hover-lift">
+                  <div className="aspect-square bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                    <div className="text-8xl font-bold text-primary-foreground">RA</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Founder Info */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <div>
+                  <h3 className="text-3xl font-bold text-gradient mb-2">
+                    Rishabh Agarwal
+                  </h3>
+                  <p className="text-xl text-accent font-semibold">
+                    Founder & CEO
+                  </p>
+                </div>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Visionary entrepreneur and AI education advocate, Rishabh Agarwal founded FaxLab AI 
+                  with a mission to democratize artificial intelligence learning. With a deep passion 
+                  for technology and education, Rishabh recognized the critical need for accessible, 
+                  practical AI education that empowers learners worldwide.
+                </p>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Under his leadership, FaxLab AI has grown into a comprehensive learning platform 
+                  that combines cutting-edge curriculum with hands-on projects, expert mentorship, 
+                  and a thriving community of AI enthusiasts.
+                </p>
+
+                <div className="flex gap-4 pt-4">
+                  <a
+                    href="https://www.linkedin.com/in/rishabhagarwaliimc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                  >
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://linktr.ee/rishabh.iimc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors font-medium"
+                  >
+                    Bio Links
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -163,13 +250,12 @@ const About = () => {
               <p>
                 FaxLab AI was born out of a simple observation: artificial intelligence is
                 transforming every industry, yet quality AI education remains inaccessible
-                to most people. Our founder, Dr. Elena Voss, a former researcher at leading
-                AI labs, witnessed this gap firsthand while mentoring aspiring AI
-                practitioners.
+                to most people. Founded by Rishabh Agarwal, FaxLab AI emerged from his vision 
+                to bridge this critical gap in accessible AI education.
               </p>
               <p>
-                In 2023, Dr. Voss assembled a team of AI experts, educators, and engineers
-                to create a learning platform that would bridge this divide. The result is
+                Rishabh assembled a team of AI experts, educators, and engineers
+                to create a learning platform that would democratize AI knowledge. The result is
                 FaxLab AI – a comprehensive ecosystem that combines world-class curriculum,
                 hands-on projects, expert mentorship, and a thriving community of learners.
               </p>
