@@ -13,10 +13,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/contexts/AuthContext";
+import SearchDialog from "./SearchDialog";
 import logo from "@/assets/faxlab-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -82,6 +84,7 @@ const Navbar = () => {
               variant="ghost"
               size="icon"
               className="text-primary-foreground hover:text-accent"
+              onClick={() => setSearchOpen(true)}
             >
               <Search className="h-5 w-5" />
             </Button>
@@ -226,6 +229,8 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
+      
+      <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
     </motion.nav>
   );
 };
