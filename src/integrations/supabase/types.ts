@@ -44,6 +44,13 @@ export type Database = {
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "certificates_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "free_enrollments_stats"
+            referencedColumns: ["course_id"]
+          },
         ]
       }
       chat_messages: {
@@ -76,6 +83,13 @@ export type Database = {
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "chat_messages_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "free_enrollments_stats"
+            referencedColumns: ["course_id"]
+          },
         ]
       }
       courses: {
@@ -86,6 +100,7 @@ export type Database = {
           duration: string | null
           id: string
           image_url: string | null
+          is_free: boolean | null
           level: string | null
           modules: number | null
           price: number
@@ -99,6 +114,7 @@ export type Database = {
           duration?: string | null
           id?: string
           image_url?: string | null
+          is_free?: boolean | null
           level?: string | null
           modules?: number | null
           price: number
@@ -112,6 +128,7 @@ export type Database = {
           duration?: string | null
           id?: string
           image_url?: string | null
+          is_free?: boolean | null
           level?: string | null
           modules?: number | null
           price?: number
@@ -156,6 +173,13 @@ export type Database = {
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "enrollments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "free_enrollments_stats"
+            referencedColumns: ["course_id"]
+          },
         ]
       }
       payments: {
@@ -196,6 +220,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "courses"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "payments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "free_enrollments_stats"
+            referencedColumns: ["course_id"]
           },
         ]
       }
@@ -265,11 +296,25 @@ export type Database = {
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "video_progress_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "free_enrollments_stats"
+            referencedColumns: ["course_id"]
+          },
         ]
       }
     }
     Views: {
-      [_ in never]: never
+      free_enrollments_stats: {
+        Row: {
+          course_id: string | null
+          title: string | null
+          total_enrollments: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
