@@ -3,6 +3,7 @@ import { Target, Users, Award, TrendingUp } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card } from "@/components/ui/card";
+import founderImage from "@/assets/founder-rishabh.jpg";
 
 const stats = [
   { icon: Users, value: "500K+", label: "Active Learners" },
@@ -170,9 +171,11 @@ const About = () => {
                 className="relative group"
               >
                 <div className="relative overflow-hidden rounded-2xl border-2 border-accent/20 shadow-elegant hover-lift">
-                  <div className="aspect-square bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <div className="text-8xl font-bold text-primary-foreground">RA</div>
-                  </div>
+                  <img 
+                    src={founderImage} 
+                    alt="Rishabh Agarwal - Founder & CEO of FaxLab AI"
+                    className="w-full h-full object-cover aspect-square"
+                  />
                 </div>
               </motion.div>
 
