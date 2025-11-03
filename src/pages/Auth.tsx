@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Lock, User, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Mail, Lock, User, Eye, EyeOff, Loader2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -64,6 +64,15 @@ const Auth = () => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
+        {/* Back to Home Button */}
+        <Link 
+          to="/" 
+          className="flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors mb-6 group"
+        >
+          <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+          <span className="text-sm font-medium">Back to Home</span>
+        </Link>
+
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center gap-3 mb-8">
           <img src={logo} alt="FaxLab AI" className="h-12 w-12" />
