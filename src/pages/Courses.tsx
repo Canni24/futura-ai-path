@@ -322,7 +322,7 @@ const Courses = () => {
                           className="w-full bg-accent text-primary hover:bg-accent-glow"
                           onClick={() => handleEnroll(course)}
                         >
-                          {course.price === 0 ? "Get Started Free" : "Enroll Now"}
+                          {course.price === 0 ? "Enroll Free" : "Enroll Now"}
                         </Button>
                       </div>
                     </div>
