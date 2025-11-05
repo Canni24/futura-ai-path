@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Select,
   SelectContent,
@@ -35,7 +36,7 @@ const allCourses = [
     modules: 8,
     rating: 4.8,
     reviews: 1250,
-    price: 1499,
+    price: 0,
     category: "Basics",
     level: "Beginner",
   },
@@ -63,7 +64,7 @@ const allCourses = [
     modules: 6,
     rating: 4.7,
     reviews: 650,
-    price: 999,
+    price: 0,
     category: "Ethics",
     level: "All Levels",
   },
@@ -118,13 +119,37 @@ const Courses = () => {
   const [category, setCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
 
-  const handleEnroll = (course: typeof allCourses[0]) => {
+  const handleEnroll = async (course: typeof allCourses[0]) => {
     if (!user) {
-      toast.error("Please sign in to enroll in courses");
+      toast.error("Please sign in to enroll");
       navigate("/auth");
       return;
     }
-    
+
+    // Handle free courses - direct enrollment
+    if (course.price === 0) {
+      try {
+        const { error } = await supabase
+          .from('enrollments')
+          .insert({
+            user_id: user.id,
+            course_id: course.id.toString(),
+          });
+
+        if (error) throw error;
+        
+        toast.success(`Successfully enrolled in ${course.title}!`);
+      } catch (error: any) {
+        if (error.code === '23505') {
+          toast.info("You're already enrolled in this course!");
+        } else {
+          toast.error("Failed to enroll. Please try again.");
+        }
+      }
+      return;
+    }
+
+    // Paid courses go to checkout
     navigate("/checkout", { 
       state: { 
         course: {
@@ -244,7 +269,7 @@ const Courses = () => {
                         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute top-4 right-4 bg-accent text-primary px-3 py-1 rounded-full text-sm font-semibold">
-                        ₹{course.price.toLocaleString()}
+                        {course.price === 0 ? "FREE" : `₹${course.price.toLocaleString()}`}
                       </div>
                       <div className="absolute bottom-4 left-4 bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                         {course.level}
@@ -281,7 +306,7 @@ const Courses = () => {
                           className="w-full bg-accent text-primary hover:bg-accent-glow"
                           onClick={() => handleEnroll(course)}
                         >
-                          Enroll Now
+                          {course.price === 0 ? "Get Started Free" : "Enroll Now"}
                         </Button>
                       </div>
                     </div>

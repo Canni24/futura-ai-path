@@ -5,6 +5,7 @@ import { Star, Clock, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 import aiFundamentals from "@/assets/course-ai-fundamentals.jpg";
 import generativeAI from "@/assets/course-generative-ai.jpg";
@@ -22,8 +23,8 @@ const courses = [
     duration: "10 hours",
     rating: 4.8,
     reviews: 1250,
-    price: "₹1,499",
-    priceNum: 1499,
+    price: "FREE",
+    priceNum: 0,
   },
   {
     id: 2,
@@ -44,8 +45,8 @@ const courses = [
     duration: "8 hours",
     rating: 4.7,
     reviews: 650,
-    price: "₹999",
-    priceNum: 999,
+    price: "FREE",
+    priceNum: 0,
   },
   {
     id: 4,
@@ -86,13 +87,37 @@ const CoursesPreview = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const handleEnroll = (course: typeof courses[0]) => {
+  const handleEnroll = async (course: typeof courses[0]) => {
     if (!user) {
-      toast.error("Please sign in to enroll in courses");
+      toast.error("Please sign in to enroll");
       navigate("/auth");
       return;
     }
-    
+
+    // Handle free courses - direct enrollment
+    if (course.priceNum === 0) {
+      try {
+        const { error } = await supabase
+          .from('enrollments')
+          .insert({
+            user_id: user.id,
+            course_id: course.id.toString(),
+          });
+
+        if (error) throw error;
+        
+        toast.success(`Successfully enrolled in ${course.title}!`);
+      } catch (error: any) {
+        if (error.code === '23505') {
+          toast.info("You're already enrolled in this course!");
+        } else {
+          toast.error("Failed to enroll. Please try again.");
+        }
+      }
+      return;
+    }
+
+    // Paid courses go to checkout
     navigate("/checkout", { 
       state: { 
         course: {
@@ -165,7 +190,7 @@ const CoursesPreview = () => {
                     className="w-full bg-accent text-primary hover:bg-accent-glow group"
                     onClick={() => handleEnroll(course)}
                   >
-                    Enroll Now
+                    {course.priceNum === 0 ? "Get Started Free" : "Enroll Now"}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
                   </Button>
                 </div>
