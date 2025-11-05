@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-neural-network.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleGetStartedFree = () => {
+    navigate("/courses", { state: { filterFree: true } });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary via-primary to-secondary">
       {/* Background Image with Overlay */}
@@ -74,6 +80,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-accent text-accent hover:bg-accent hover:text-primary"
+              onClick={handleGetStartedFree}
             >
               Get Started Free
             </Button>

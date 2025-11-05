@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Filter, Star, Clock, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -114,10 +114,24 @@ const allCourses = [
 
 const Courses = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
+
+  // Auto-filter for free courses if coming from "Get Started Free"
+  useEffect(() => {
+    if (location.state?.filterFree) {
+      setCategory("all");
+      setSortBy("popular");
+      // Scroll to courses grid after a brief delay
+      setTimeout(() => {
+        const coursesGrid = document.querySelector('section.py-12');
+        coursesGrid?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location.state]);
 
   const handleEnroll = async (course: typeof allCourses[0]) => {
     if (!user) {
@@ -169,7 +183,9 @@ const Courses = () => {
         .includes(searchTerm.toLowerCase());
       const matchesCategory =
         category === "all" || course.category.toLowerCase() === category.toLowerCase();
-      return matchesSearch && matchesCategory;
+      // If coming from "Get Started Free", show only free courses
+      const matchesFree = location.state?.filterFree ? course.price === 0 : true;
+      return matchesSearch && matchesCategory && matchesFree;
     })
     .sort((a, b) => {
       if (sortBy === "price-low") return a.price - b.price;
