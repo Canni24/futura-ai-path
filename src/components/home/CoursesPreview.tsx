@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { useQuery } from "@tanstack/react-query";
 
 import aiFundamentals from "@/assets/course-ai-fundamentals.jpg";
 import generativeAI from "@/assets/course-generative-ai.jpg";
@@ -14,78 +15,46 @@ import mlData from "@/assets/course-ml-data.jpg";
 import career from "@/assets/course-career.jpg";
 import computerVision from "@/assets/course-computer-vision.jpg";
 
-const courses = [
-  {
-    id: 1,
-    title: "AI Fundamentals Unleashed",
-    description: "Intro to neural networks, Python basics, and core AI concepts.",
-    image: aiFundamentals,
-    duration: "10 hours",
-    rating: 4.8,
-    reviews: 1250,
-    price: "FREE",
-    priceNum: 0,
-  },
-  {
-    id: 2,
-    title: "Generative AI Mastery",
-    description: "Build with Stable Diffusion, ChatGPT APIs, and create AI art.",
-    image: generativeAI,
-    duration: "15 hours",
-    rating: 4.9,
-    reviews: 980,
-    price: "₹1,999",
-    priceNum: 1999,
-  },
-  {
-    id: 3,
-    title: "Ethical AI & Bias",
-    description: "Navigate responsible AI deployment and fairness principles.",
-    image: ethicalAI,
-    duration: "8 hours",
-    rating: 4.7,
-    reviews: 650,
-    price: "FREE",
-    priceNum: 0,
-  },
-  {
-    id: 4,
-    title: "ML for Data Pros",
-    description: "Hands-on TensorFlow projects and advanced ML techniques.",
-    image: mlData,
-    duration: "20 hours",
-    rating: 4.9,
-    reviews: 1500,
-    price: "₹2,499",
-    priceNum: 2499,
-  },
-  {
-    id: 5,
-    title: "AI Career Accelerator",
-    description: "Resumes, interviews, portfolio building for AI roles.",
-    image: career,
-    duration: "12 hours",
-    rating: 4.6,
-    reviews: 890,
-    price: "₹1,299",
-    priceNum: 1299,
-  },
-  {
-    id: 6,
-    title: "Computer Vision Basics",
-    description: "Image recognition, object detection, and OpenCV fundamentals.",
-    image: computerVision,
-    duration: "18 hours",
-    rating: 4.8,
-    reviews: 720,
-    price: "₹2,199",
-    priceNum: 2199,
-  },
-];
+// Course images mapping
+const courseImages: Record<string, string> = {
+  "AI Fundamentals Unleashed": aiFundamentals,
+  "Generative AI Mastery": generativeAI,
+  "Ethical AI & Bias": ethicalAI,
+  "ML for Data Pros": mlData,
+  "AI Career Accelerator": career,
+  "Computer Vision Basics": computerVision,
+};
 
 const CoursesPreview = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+
+  // Fetch courses from database (limit to 6 for preview)
+  const { data: dbCourses } = useQuery({
+    queryKey: ['courses-preview'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('courses')
+        .select('*')
+        .limit(6);
+      
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  // Transform database courses to match frontend structure
+  const courses = dbCourses?.map(course => ({
+    id: course.id,
+    title: course.title,
+    description: course.description || "",
+    image: courseImages[course.title] || aiFundamentals,
+    duration: course.duration || "10 hours",
+    rating: Number(course.rating) || 4.8,
+    reviews: 1000,
+    price: course.price === 0 || course.is_free ? "FREE" : `₹${Number(course.price).toLocaleString()}`,
+    priceNum: Number(course.price),
+  })) || [];
 
   const handleEnroll = async (course: typeof courses[0]) => {
     if (!user) {
@@ -101,7 +70,7 @@ const CoursesPreview = () => {
           .from('enrollments')
           .insert({
             user_id: user.id,
-            course_id: course.id.toString(),
+            course_id: course.id,
           });
 
         if (error) throw error;
@@ -111,6 +80,7 @@ const CoursesPreview = () => {
         if (error.code === '23505') {
           toast.info("You're already enrolled in this course!");
         } else {
+          console.error("Enrollment error:", error);
           toast.error("Failed to enroll. Please try again.");
         }
       }
@@ -190,7 +160,7 @@ const CoursesPreview = () => {
                     className="w-full bg-accent text-primary hover:bg-accent-glow group"
                     onClick={() => handleEnroll(course)}
                   >
-                    {course.priceNum === 0 ? "Get Started Free" : "Enroll Now"}
+                    {course.priceNum === 0 ? "Enroll Free" : "Enroll Now"}
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
                   </Button>
                 </div>

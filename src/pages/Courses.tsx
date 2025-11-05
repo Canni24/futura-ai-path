@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Search, Filter, Star, Clock, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -25,92 +26,15 @@ import mlData from "@/assets/course-ml-data.jpg";
 import career from "@/assets/course-career.jpg";
 import computerVision from "@/assets/course-computer-vision.jpg";
 
-const allCourses = [
-  {
-    id: 1,
-    title: "AI Fundamentals Unleashed",
-    description:
-      "Master the core concepts of artificial intelligence including neural networks, deep learning architectures, and Python programming fundamentals. Perfect for absolute beginners.",
-    image: aiFundamentals,
-    duration: "10 hours",
-    modules: 8,
-    rating: 4.8,
-    reviews: 1250,
-    price: 0,
-    category: "Basics",
-    level: "Beginner",
-  },
-  {
-    id: 2,
-    title: "Generative AI Mastery",
-    description:
-      "Build cutting-edge generative AI applications using Stable Diffusion, ChatGPT APIs, DALL-E, and more. Create AI-powered art, content, and applications.",
-    image: generativeAI,
-    duration: "15 hours",
-    modules: 12,
-    rating: 4.9,
-    reviews: 980,
-    price: 1999,
-    category: "Advanced",
-    level: "Intermediate",
-  },
-  {
-    id: 3,
-    title: "Ethical AI & Bias",
-    description:
-      "Navigate the complex landscape of responsible AI deployment, fairness principles, bias detection, and ethical considerations in machine learning systems.",
-    image: ethicalAI,
-    duration: "8 hours",
-    modules: 6,
-    rating: 4.7,
-    reviews: 650,
-    price: 0,
-    category: "Ethics",
-    level: "All Levels",
-  },
-  {
-    id: 4,
-    title: "ML for Data Pros",
-    description:
-      "Deep dive into TensorFlow, PyTorch, and advanced machine learning techniques. Build production-ready models with hands-on projects and real-world datasets.",
-    image: mlData,
-    duration: "20 hours",
-    modules: 15,
-    rating: 4.9,
-    reviews: 1500,
-    price: 2499,
-    category: "Advanced",
-    level: "Advanced",
-  },
-  {
-    id: 5,
-    title: "AI Career Accelerator",
-    description:
-      "Complete guide to landing your dream AI job with expert resume templates, interview preparation, portfolio building strategies, and networking tips.",
-    image: career,
-    duration: "12 hours",
-    modules: 10,
-    rating: 4.6,
-    reviews: 890,
-    price: 1299,
-    category: "Career",
-    level: "All Levels",
-  },
-  {
-    id: 6,
-    title: "Computer Vision Basics",
-    description:
-      "Learn image recognition, object detection, facial recognition, and OpenCV fundamentals. Build real-world computer vision applications from scratch.",
-    image: computerVision,
-    duration: "18 hours",
-    modules: 14,
-    rating: 4.8,
-    reviews: 720,
-    price: 2199,
-    category: "Basics",
-    level: "Intermediate",
-  },
-];
+// Course images mapping
+const courseImages: Record<string, string> = {
+  "AI Fundamentals Unleashed": aiFundamentals,
+  "Generative AI Mastery": generativeAI,
+  "Ethical AI & Bias": ethicalAI,
+  "ML for Data Pros": mlData,
+  "AI Career Accelerator": career,
+  "Computer Vision Basics": computerVision,
+};
 
 const Courses = () => {
   const navigate = useNavigate();
@@ -119,6 +43,34 @@ const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
+
+  // Fetch courses from database
+  const { data: dbCourses, isLoading } = useQuery({
+    queryKey: ['courses'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('courses')
+        .select('*');
+      
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  // Transform database courses to match frontend structure
+  const allCourses = dbCourses?.map(course => ({
+    id: course.id,
+    title: course.title,
+    description: course.description || "",
+    image: courseImages[course.title] || aiFundamentals,
+    duration: course.duration || "10 hours",
+    modules: course.modules || 8,
+    rating: Number(course.rating) || 4.8,
+    reviews: 1000,
+    price: Number(course.price),
+    category: course.category || "Basics",
+    level: course.level || "Beginner",
+  })) || [];
 
   // Auto-filter for free courses if coming from "Get Started Free"
   useEffect(() => {
@@ -147,7 +99,7 @@ const Courses = () => {
           .from('enrollments')
           .insert({
             user_id: user.id,
-            course_id: course.id.toString(),
+            course_id: course.id,
           });
 
         if (error) throw error;
@@ -157,6 +109,7 @@ const Courses = () => {
         if (error.code === '23505') {
           toast.info("You're already enrolled in this course!");
         } else {
+          console.error("Enrollment error:", error);
           toast.error("Failed to enroll. Please try again.");
         }
       }
@@ -264,7 +217,11 @@ const Courses = () => {
       {/* Courses Grid */}
       <section className="py-12">
         <div className="container mx-auto px-4 lg:px-8">
-          {filteredCourses.length === 0 ? (
+          {isLoading ? (
+            <div className="text-center py-20">
+              <p className="text-muted-foreground text-lg">Loading courses...</p>
+            </div>
+          ) : filteredCourses.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-muted-foreground text-lg">No courses found. Try adjusting your filters.</p>
             </div>
