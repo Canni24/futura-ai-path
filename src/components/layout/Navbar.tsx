@@ -29,6 +29,11 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
+  const userNavItems = user ? [
+    ...navItems,
+    { name: "Dashboard", path: "/dashboard" },
+  ] : navItems;
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -66,7 +71,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {userNavItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
@@ -160,7 +165,7 @@ const Navbar = () => {
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                {navItems.map((item) => (
+                {userNavItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
