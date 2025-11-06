@@ -127,7 +127,10 @@ const CoursesPreview = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="overflow-hidden hover-lift group border-accent/20">
+              <Card 
+                className="overflow-hidden hover-lift group border-accent/20 cursor-pointer"
+                onClick={() => navigate(`/courses/${course.id}`)}
+              >
                 <div className="relative overflow-hidden">
                   <img
                     src={course.image}
@@ -158,9 +161,12 @@ const CoursesPreview = () => {
                   </div>
                   <Button 
                     className="w-full bg-accent text-primary hover:bg-accent-glow group"
-                    onClick={() => handleEnroll(course)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/courses/${course.id}`);
+                    }}
                   >
-                    {course.priceNum === 0 ? "Enroll Free" : "Enroll Now"}
+                    View Details
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 smooth-transition" />
                   </Button>
                 </div>

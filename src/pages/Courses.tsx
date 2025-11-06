@@ -234,7 +234,10 @@ const Courses = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="overflow-hidden hover-lift group border-accent/20 h-full flex flex-col">
+                  <Card 
+                    className="overflow-hidden hover-lift group border-accent/20 h-full flex flex-col cursor-pointer"
+                    onClick={() => navigate(`/courses/${course.id}`)}
+                  >
                     <div className="relative overflow-hidden">
                       <img
                         src={course.image}
@@ -277,9 +280,12 @@ const Courses = () => {
                         </div>
                         <Button 
                           className="w-full bg-accent text-primary hover:bg-accent-glow"
-                          onClick={() => handleEnroll(course)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/courses/${course.id}`);
+                          }}
                         >
-                          {course.price === 0 ? "Enroll Free" : "Enroll Now"}
+                          View Details
                         </Button>
                       </div>
                     </div>
