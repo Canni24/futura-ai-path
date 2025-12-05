@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { Star, Clock, Users } from "lucide-react";
+import { Star, Clock, Users, Filter, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -58,6 +59,7 @@ const Courses = () => {
   const location = useLocation();
   const { user } = useAuth();
   const [category, setCategory] = useState("all");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Fetch courses from database
   const { data: dbCourses, isLoading } = useQuery({
@@ -159,7 +161,74 @@ const Courses = () => {
       <Navbar />
 
       <div className="pt-20 flex">
-        {/* Sidebar */}
+        {/* Mobile Filter Button */}
+        <div className="lg:hidden fixed bottom-6 right-6 z-50">
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button size="lg" className="rounded-full shadow-lg">
+                <Filter className="w-5 h-5 mr-2" />
+                Filters
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-80 p-0">
+              <SheetHeader className="p-6 border-b border-border">
+                <SheetTitle className="flex items-center gap-2">
+                  <Filter className="w-4 h-4" />
+                  Filters
+                </SheetTitle>
+              </SheetHeader>
+              <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-80px)]">
+                {/* Category Filter */}
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-foreground mb-3">Category</h3>
+                  {["all", "basics", "advanced", "ethics", "career"].map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => {
+                        setCategory(cat);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 rounded-md text-sm transition-colors ${
+                        category === cat
+                          ? "bg-accent text-accent-foreground font-medium"
+                          : "hover:bg-muted text-muted-foreground"
+                      }`}
+                    >
+                      {cat === "all" ? "All" : cat === "basics" ? "AI Basics" : cat === "advanced" ? "ML Advanced" : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Popular Courses */}
+                <div className="space-y-4 pt-6 border-t border-border">
+                  <h3 className="text-sm font-semibold text-foreground">Popular Courses</h3>
+                  <div className="space-y-3">
+                    {popularCourses.map((course) => (
+                      <button
+                        key={course.id}
+                        onClick={() => {
+                          navigate(`/courses/${course.id}`);
+                          setMobileMenuOpen(false);
+                        }}
+                        className="w-full text-left space-y-1 group"
+                      >
+                        <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
+                          {course.title}
+                        </p>
+                        <div className="flex items-center gap-1">
+                          <Star className="w-3 h-3 fill-accent text-accent" />
+                          <span className="text-xs text-muted-foreground">{course.rating}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        {/* Desktop Sidebar */}
         <aside className="hidden lg:block w-64 border-r border-border min-h-screen sticky top-20 self-start">
           <div className="p-6 space-y-6">
             {/* Filters Section */}
