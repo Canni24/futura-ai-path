@@ -7,6 +7,7 @@ import founderImage from "@/assets/founder-rishabh.jpg";
 import teamRitikaImage from "@/assets/team-ritika.jpg";
 import teamMeghnaImage from "@/assets/team-meghna.jpg";
 import teamPujaImage from "@/assets/team-puja.jpg";
+import teamRajatImage from "@/assets/team-rajat.jpg";
 
 const stats = [
   { icon: Users, value: "500K+", label: "Active Learners" },
@@ -257,7 +258,30 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {/* Rajat Agarwal - Director */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="overflow-hidden hover-lift border-accent/20">
+                <div className="relative">
+                  <img
+                    src={teamRajatImage}
+                    alt="Rajat Agarwal - Director at FaxLab AI"
+                    className="w-full aspect-square object-cover"
+                  />
+                </div>
+                <div className="p-6 text-center space-y-3">
+                  <h3 className="text-xl font-bold text-foreground">Rajat Agarwal</h3>
+                  <p className="text-accent font-semibold">Director</p>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* CS Puja Shree Agarwal - Director */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
