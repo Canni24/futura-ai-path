@@ -3,6 +3,7 @@ import { Target, Users, Award, TrendingUp } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card } from "@/components/ui/card";
+import TeamMemberCard from "@/components/about/TeamMemberCard";
 import founderImage from "@/assets/founder-rishabh.jpg";
 import teamRitikaImage from "@/assets/team-ritika.jpg";
 import teamMeghnaImage from "@/assets/team-meghna.jpg";
@@ -10,6 +11,51 @@ import teamPujaImage from "@/assets/team-puja.jpg";
 import teamRajatImage from "@/assets/team-rajat.jpg";
 import teamSwatiImage from "@/assets/team-swati.jpg";
 import teamAnkkitImage from "@/assets/team-ankkit.jpg";
+
+const teamMembers = [
+  {
+    name: "Rajat Agarwal",
+    role: "Director",
+    image: teamRajatImage,
+    linkedinUrl: "https://www.linkedin.com/in/rajatagarwal23",
+    bio: "Strategic leader driving FaxLab AI's vision and growth with expertise in business development.",
+  },
+  {
+    name: "CS Puja Shree Agarwal",
+    role: "Director",
+    image: teamPujaImage,
+    linkedinUrl: "https://www.linkedin.com/in/pujashreeagrawal/",
+    bio: "Corporate affairs expert ensuring FaxLab AI's compliance and governance excellence.",
+  },
+  {
+    name: "Ankkit Mittal",
+    role: "Director",
+    image: teamAnkkitImage,
+    linkedinUrl: "https://www.linkedin.com/in/ankkit-mittal-20a36817",
+    bio: "Experienced leader driving strategic initiatives and business excellence at FaxLab AI.",
+  },
+  {
+    name: "Swati Agarwal",
+    role: "Associate Director",
+    image: teamSwatiImage,
+    linkedinUrl: "https://www.linkedin.com/in/swatyaggrawal",
+    bio: "Dedicated to operational excellence and team coordination at FaxLab AI.",
+  },
+  {
+    name: "Ritika Singhal",
+    role: "Associate Director",
+    image: teamRitikaImage,
+    linkedinUrl: "https://www.linkedin.com/in/ritika-singhal-4562b316/",
+    bio: "Driving educational initiatives and program management at FaxLab AI.",
+  },
+  {
+    name: "Meghna Nag",
+    role: "Team Member",
+    image: teamMeghnaImage,
+    linkedinUrl: "https://www.linkedin.com/in/meghna-nag-5247b33a/",
+    bio: "Contributing to FaxLab AI's mission with dedication and expertise.",
+  },
+];
 
 const stats = [
   { icon: Users, value: "500K+", label: "Active Learners" },
@@ -260,203 +306,18 @@ const About = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 max-w-7xl mx-auto">
-            {/* Rajat Agarwal - Director */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="overflow-hidden hover-lift border-accent/20">
-                <div className="relative">
-                  <img
-                    src={teamRajatImage}
-                    alt="Rajat Agarwal - Director at FaxLab AI"
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-                <div className="p-6 text-center space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">Rajat Agarwal</h3>
-                  <p className="text-accent font-semibold">Director</p>
-                  <a
-                    href="https://www.linkedin.com/in/rajatagarwal23"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* CS Puja Shree Agarwal - Director */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="overflow-hidden hover-lift border-accent/20">
-                <div className="relative">
-                  <img
-                    src={teamPujaImage}
-                    alt="CS Puja Shree Agarwal - Director at FaxLab AI"
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-                <div className="p-6 text-center space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">CS Puja Shree Agarwal</h3>
-                  <p className="text-accent font-semibold">Director</p>
-                  <a
-                    href="https://www.linkedin.com/in/pujashreeagrawal/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Ankkit Mittal - Director */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="overflow-hidden hover-lift border-accent/20">
-                <div className="relative">
-                  <img
-                    src={teamAnkkitImage}
-                    alt="Ankkit Mittal - Director at FaxLab AI"
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-                <div className="p-6 text-center space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">Ankkit Mittal</h3>
-                  <p className="text-accent font-semibold">Director</p>
-                  <a
-                    href="https://www.linkedin.com/in/ankkit-mittal-20a36817"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Swati Agarwal - Associate Director */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <Card className="overflow-hidden hover-lift border-accent/20">
-                <div className="relative">
-                  <img
-                    src={teamSwatiImage}
-                    alt="Swati Agarwal - Associate Director at FaxLab AI"
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-                <div className="p-6 text-center space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">Swati Agarwal</h3>
-                  <p className="text-accent font-semibold">Associate Director</p>
-                  <a
-                    href="https://www.linkedin.com/in/swatyaggrawal"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Ritika Singhal - Associate Director */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-            >
-              <Card className="overflow-hidden hover-lift border-accent/20">
-                <div className="relative">
-                  <img
-                    src={teamRitikaImage}
-                    alt="Ritika Singhal - Associate Director at FaxLab AI"
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-                <div className="p-6 text-center space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">Ritika Singhal</h3>
-                  <p className="text-accent font-semibold">Associate Director</p>
-                  <a
-                    href="https://www.linkedin.com/in/ritika-singhal-4562b316/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Card className="overflow-hidden hover-lift border-accent/20">
-                <div className="relative">
-                  <img
-                    src={teamMeghnaImage}
-                    alt="Meghna Nag - FaxLab AI"
-                    className="w-full aspect-square object-cover"
-                  />
-                </div>
-                <div className="p-6 text-center space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">Meghna Nag</h3>
-                  <p className="text-accent font-semibold">Team Member</p>
-                  <a
-                    href="https://www.linkedin.com/in/meghna-nag-5247b33a/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                  </a>
-                </div>
-              </Card>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <TeamMemberCard
+                key={member.name}
+                name={member.name}
+                role={member.role}
+                image={member.image}
+                linkedinUrl={member.linkedinUrl}
+                bio={member.bio}
+                delay={index * 0.1}
+              />
+            ))}
           </div>
         </div>
       </section>
