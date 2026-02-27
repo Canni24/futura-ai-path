@@ -64,7 +64,7 @@ const Navbar = () => {
                 FaxLab <span className="text-accent glow-effect">AI</span>
               </span>
               <span className="text-[10px] text-primary-foreground/60 tracking-wider uppercase">
-                AI Education Platform
+                Future. AI. X-factor
               </span>
             </motion.div>
           </Link>
