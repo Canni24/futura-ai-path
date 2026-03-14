@@ -75,7 +75,7 @@ const Auth = () => {
 
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center gap-3 mb-8">
-          <img src={logo} alt="FaxLab AI" className="h-12 w-12" />
+          <img src={logo} alt="FaxLab AI" className="h-12 w-12 rounded-lg object-cover" />
           <span className="text-3xl font-bold text-primary-foreground">
             FaxLab <span className="text-accent">AI</span>
           </span>
