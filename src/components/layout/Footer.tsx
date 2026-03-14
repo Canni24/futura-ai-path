@@ -90,7 +90,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-accent/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm opacity-80">© 2025 FaxLab AI. All rights reserved.</p>
+          <p className="text-sm opacity-80">© 2026 FaxLab AI. All rights reserved.</p>
           <div className="flex gap-4">
             {socialLinks.map((social) => (
               <motion.a
