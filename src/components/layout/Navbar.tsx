@@ -52,7 +52,7 @@ const Navbar = () => {
               <img 
                 src={logo} 
                 alt="FaxLab AI Logo" 
-                className="h-10 w-10 rounded-lg object-cover drop-shadow-lg"
+                className="h-12 w-12 rounded-lg object-cover drop-shadow-lg"
               />
               <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 smooth-transition rounded-full" />
             </motion.div>

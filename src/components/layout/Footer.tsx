@@ -26,7 +26,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3">
-              <img src={faxlabLogo} alt="FaxLab AI" className="h-10 w-10 rounded-lg object-cover" />
+              <img src={faxlabLogo} alt="FaxLab AI" className="h-12 w-12 rounded-lg object-cover" />
               <div>
                 <h3 className="text-xl font-bold text-accent">FaxLab AI</h3>
                 <span className="text-[10px] text-primary-foreground/60 tracking-wider uppercase">Future. AI. X-factor</span>
