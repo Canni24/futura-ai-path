@@ -56,6 +56,13 @@ const teamMembers = [
     linkedinUrl: "https://www.linkedin.com/in/meghna-nag-5247b33a/",
     bio: "Contributing to FaxLab AI's mission with dedication and expertise.",
   },
+  {
+    name: "Dakshesh Sood",
+    role: "Assistant Director",
+    image: teamDaksheshImage,
+    linkedinUrl: "https://www.linkedin.com/in/daksheshsood",
+    bio: "Supporting FaxLab AI's growth and operations with strategic insight and dedication.",
+  },
 ];
 
 const stats = [
