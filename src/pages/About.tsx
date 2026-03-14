@@ -11,6 +11,7 @@ import teamPujaImage from "@/assets/team-puja.jpg";
 import teamRajatImage from "@/assets/team-rajat.jpg";
 import teamSwatiImage from "@/assets/team-swati.jpg";
 import teamAnkkitImage from "@/assets/team-ankkit.jpg";
+import teamDaksheshImage from "@/assets/team-dakshesh.jpg";
 
 const teamMembers = [
   {
@@ -54,6 +55,13 @@ const teamMembers = [
     image: teamMeghnaImage,
     linkedinUrl: "https://www.linkedin.com/in/meghna-nag-5247b33a/",
     bio: "Contributing to FaxLab AI's mission with dedication and expertise.",
+  },
+  {
+    name: "Dakshesh Sood",
+    role: "Assistant Director",
+    image: teamDaksheshImage,
+    linkedinUrl: "https://www.linkedin.com/in/daksheshsood",
+    bio: "Supporting FaxLab AI's growth and operations with strategic insight and dedication.",
   },
 ];
 
