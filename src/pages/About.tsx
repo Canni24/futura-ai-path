@@ -11,6 +11,7 @@ import teamPujaImage from "@/assets/team-puja.jpg";
 import teamRajatImage from "@/assets/team-rajat.jpg";
 import teamSwatiImage from "@/assets/team-swati.jpg";
 import teamAnkkitImage from "@/assets/team-ankkit.jpg";
+import teamDaksheshImage from "@/assets/team-dakshesh.jpg";
 
 const teamMembers = [
   {
