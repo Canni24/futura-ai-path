@@ -3,6 +3,7 @@ import { Mail, Twitter, Linkedin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import faxlabLogo from "@/assets/faxlab-logo.png";
 
 const Footer = () => {
   const quickLinks = [
@@ -24,7 +25,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-accent">FaxLab AI</h3>
+            <Link to="/" className="flex items-center gap-3">
+              <img src={faxlabLogo} alt="FaxLab AI" className="h-10 w-10 rounded-lg object-cover" />
+              <div>
+                <h3 className="text-xl font-bold text-accent">FaxLab AI</h3>
+                <span className="text-[10px] text-primary-foreground/60 tracking-wider uppercase">Future. AI. X-factor</span>
+              </div>
+            </Link>
             <p className="text-sm opacity-80">
               Master AI skills for the future. Join 500K+ learners transforming their careers.
             </p>
@@ -83,7 +90,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-accent/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm opacity-80">© 2025 FaxLab AI. All rights reserved.</p>
+          <p className="text-sm opacity-80">© 2026 FaxLab AI. All rights reserved.</p>
           <div className="flex gap-4">
             {socialLinks.map((social) => (
               <motion.a
