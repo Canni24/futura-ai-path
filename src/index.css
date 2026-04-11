@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* FaxLab AI - White bg, Navy Blue, Magenta Red & Cyan */
+    /* FaxLab AI Design System - Deep Blue & Electric Teal */
     --background: 0 0% 100%;
-    --foreground: 220 50% 18%;
+    --foreground: 206 79% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 50% 18%;
+    --card-foreground: 206 79% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 50% 18%;
+    --popover-foreground: 206 79% 15%;
 
-    /* Primary: Navy Blue */
-    --primary: 220 50% 18%;
+    /* Primary: Deep Blue #0A2540 */
+    --primary: 206 79% 15%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 50% 25%;
+    --primary-hover: 206 79% 20%;
 
-    /* Secondary: Magenta Red */
-    --secondary: 340 80% 45%;
+    /* Secondary: Lighter Blue */
+    --secondary: 206 50% 30%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent: Cyan (matching logo) */
+    /* Accent: Electric Teal #00D4FF */
     --accent: 192 100% 50%;
-    --accent-foreground: 220 50% 18%;
+    --accent-foreground: 206 79% 15%;
     --accent-glow: 192 100% 60%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 15% 46%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --destructive: 340 80% 45%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 192 100% 50%;
 
     --radius: 0.75rem;
 
     /* Custom Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220, 50%, 18%), hsl(340, 80%, 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(220, 50%, 14%), hsl(220, 50%, 20%));
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(220, 15%, 97%));
+    --gradient-primary: linear-gradient(135deg, hsl(206, 79%, 15%), hsl(192, 100%, 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(206, 79%, 10%), hsl(206, 79%, 15%));
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 40%, 98%));
 
     /* Shadows */
     --shadow-glow: 0 0 40px hsl(192 100% 50% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 50% 18% / 0.1);
-    --shadow-elevated: 0 20px 50px -10px hsl(220 50% 18% / 0.2);
+    --shadow-card: 0 10px 30px -10px hsl(206 79% 15% / 0.1);
+    --shadow-elevated: 0 20px 50px -10px hsl(206 79% 15% / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,43 +60,43 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 50% 8%;
+    --background: 206 79% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 220 50% 12%;
+    --card: 206 79% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 50% 12%;
+    --popover: 206 79% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 340 80% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 340 80% 58%;
+    --primary: 192 100% 50%;
+    --primary-foreground: 206 79% 15%;
+    --primary-hover: 192 100% 60%;
 
-    --secondary: 220 50% 25%;
+    --secondary: 206 50% 25%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 192 100% 50%;
-    --accent-foreground: 220 50% 15%;
+    --accent-foreground: 206 79% 15%;
     --accent-glow: 192 100% 70%;
 
-    --muted: 220 40% 20%;
-    --muted-foreground: 220 20% 65%;
+    --muted: 206 50% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --destructive: 340 80% 50%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 40% 20%;
-    --input: 220 40% 20%;
+    --border: 206 50% 20%;
+    --input: 206 50% 20%;
     --ring: 192 100% 50%;
 
-    --gradient-hero: linear-gradient(180deg, hsl(220, 50%, 8%), hsl(220, 50%, 12%));
-    --gradient-card: linear-gradient(145deg, hsl(220, 50%, 12%), hsl(220, 40%, 15%));
+    --gradient-hero: linear-gradient(180deg, hsl(206, 79%, 8%), hsl(206, 79%, 12%));
+    --gradient-card: linear-gradient(145deg, hsl(206, 79%, 12%), hsl(206, 50%, 15%));
   }
 }
 
 @layer base {
-
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
   * {
     @apply border-border;

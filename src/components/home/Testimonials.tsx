@@ -62,7 +62,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 bg-primary relative overflow-hidden">
       <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle,_hsl(192,100%,50%)_1px,_transparent_1px)] bg-[length:40px_40px]" />
       
       <div className="container mx-auto px-4 lg:px-8 relative">
@@ -73,10 +73,10 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-primary">
-            Learner <span className="text-secondary">Success Stories</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary-foreground">
+            Learner <span className="text-accent">Success Stories</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
             Join thousands of professionals who transformed their careers with FaxLab AI.
           </p>
         </motion.div>
@@ -90,7 +90,7 @@ const Testimonials = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="p-6 bg-muted/50 border-border hover-lift h-full">
+              <Card className="p-6 bg-secondary/20 border-accent/20 hover-lift h-full backdrop-blur-sm">
                 <div className="space-y-4">
                   <Quote className="h-8 w-8 text-accent opacity-50" />
                   
@@ -100,11 +100,11 @@ const Testimonials = () => {
                     ))}
                   </div>
 
-                  <p className="text-foreground/80 text-sm leading-relaxed">
+                  <p className="text-primary-foreground/90 text-sm leading-relaxed">
                     "{testimonial.content}"
                   </p>
 
-                  <div className="pt-4 border-t border-border flex items-center justify-between">
+                  <div className="pt-4 border-t border-accent/20 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Avatar>
                         <AvatarFallback className="bg-accent text-primary font-semibold">
@@ -112,17 +112,17 @@ const Testimonials = () => {
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <div className="font-semibold text-foreground">
+                        <div className="font-semibold text-primary-foreground">
                           {testimonial.name}
                         </div>
-                        <div className="text-xs text-muted-foreground">
+                        <div className="text-xs text-primary-foreground/70">
                           {testimonial.role}
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="text-xs text-secondary font-medium">
+                  <div className="text-xs text-accent font-medium">
                     ✨ {testimonial.metric}
                   </div>
                 </div>
@@ -139,8 +139,8 @@ const Testimonials = () => {
           className="text-center mt-12"
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-accent/10 border border-accent/30 rounded-full">
-            <span className="text-secondary font-semibold">#1 New Release in AI Learning</span>
-            <span className="text-muted-foreground">• 500K+ Project Impressions</span>
+            <span className="text-accent font-semibold">#1 New Release in AI Learning</span>
+            <span className="text-primary-foreground/80">• 500K+ Project Impressions</span>
           </div>
         </motion.div>
       </div>

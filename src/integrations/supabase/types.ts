@@ -84,16 +84,13 @@ export type Database = {
           created_at: string | null
           description: string | null
           duration: string | null
-          graphy_url: string | null
           id: string
           image_url: string | null
-          instructor: string | null
           is_free: boolean | null
           level: string | null
           modules: number | null
           price: number
           rating: number | null
-          students_count: string | null
           title: string
         }
         Insert: {
@@ -101,16 +98,13 @@ export type Database = {
           created_at?: string | null
           description?: string | null
           duration?: string | null
-          graphy_url?: string | null
           id?: string
           image_url?: string | null
-          instructor?: string | null
           is_free?: boolean | null
           level?: string | null
           modules?: number | null
           price: number
           rating?: number | null
-          students_count?: string | null
           title: string
         }
         Update: {
@@ -118,16 +112,13 @@ export type Database = {
           created_at?: string | null
           description?: string | null
           duration?: string | null
-          graphy_url?: string | null
           id?: string
           image_url?: string | null
-          instructor?: string | null
           is_free?: boolean | null
           level?: string | null
           modules?: number | null
           price?: number
           rating?: number | null
-          students_count?: string | null
           title?: string
         }
         Relationships: []
