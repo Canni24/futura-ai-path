@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* FaxLab AI Design System - Deep Blue & Electric Teal */
+    /* FaxLab AI Design System - Dark Red, Navy Blue, White & Cyan */
     --background: 0 0% 100%;
-    --foreground: 206 79% 15%;
+    --foreground: 220 60% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 206 79% 15%;
+    --card-foreground: 220 60% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 206 79% 15%;
+    --popover-foreground: 220 60% 15%;
 
-    /* Primary: Deep Blue #0A2540 */
-    --primary: 206 79% 15%;
+    /* Primary: Dark Red #8B1A1A */
+    --primary: 0 68% 32%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 206 79% 20%;
+    --primary-hover: 0 68% 38%;
 
-    /* Secondary: Lighter Blue */
-    --secondary: 206 50% 30%;
+    /* Secondary: Navy Blue #1B2A4A */
+    --secondary: 220 45% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent: Electric Teal #00D4FF */
+    /* Accent: Cyan #00D4FF (matching logo) */
     --accent: 192 100% 50%;
-    --accent-foreground: 206 79% 15%;
+    --accent-foreground: 220 60% 15%;
     --accent-glow: 192 100% 60%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 20% 95%;
+    --muted-foreground: 220 15% 46%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 192 100% 50%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 0 68% 32%;
 
     --radius: 0.75rem;
 
     /* Custom Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(206, 79%, 15%), hsl(192, 100%, 50%));
-    --gradient-hero: linear-gradient(180deg, hsl(206, 79%, 10%), hsl(206, 79%, 15%));
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(210, 40%, 98%));
+    --gradient-primary: linear-gradient(135deg, hsl(0, 68%, 32%), hsl(220, 45%, 20%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 45%, 15%), hsl(220, 45%, 20%));
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(220, 20%, 97%));
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(192 100% 50% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(206 79% 15% / 0.1);
-    --shadow-elevated: 0 20px 50px -10px hsl(206 79% 15% / 0.2);
+    --shadow-glow: 0 0 40px hsl(0 68% 32% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 45% 20% / 0.1);
+    --shadow-elevated: 0 20px 50px -10px hsl(220 45% 20% / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -60,38 +60,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 206 79% 8%;
+    --background: 220 45% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 206 79% 12%;
+    --card: 220 45% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 206 79% 12%;
+    --popover: 220 45% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 192 100% 50%;
-    --primary-foreground: 206 79% 15%;
-    --primary-hover: 192 100% 60%;
+    --primary: 0 68% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 0 68% 48%;
 
-    --secondary: 206 50% 25%;
+    --secondary: 220 45% 25%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 192 100% 50%;
-    --accent-foreground: 206 79% 15%;
+    --accent-foreground: 220 45% 15%;
     --accent-glow: 192 100% 70%;
 
-    --muted: 206 50% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 40% 20%;
+    --muted-foreground: 220 20% 65%;
 
     --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 206 50% 20%;
-    --input: 206 50% 20%;
-    --ring: 192 100% 50%;
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: 0 68% 40%;
 
-    --gradient-hero: linear-gradient(180deg, hsl(206, 79%, 8%), hsl(206, 79%, 12%));
-    --gradient-card: linear-gradient(145deg, hsl(206, 79%, 12%), hsl(206, 50%, 15%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 45%, 8%), hsl(220, 45%, 12%));
+    --gradient-card: linear-gradient(145deg, hsl(220, 45%, 12%), hsl(220, 40%, 15%));
   }
 }
 
