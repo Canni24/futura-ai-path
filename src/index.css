@@ -10,51 +10,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* FaxLab AI Design System - Dark Red, Navy Blue, White & Cyan */
+    /* FaxLab AI - White bg, Navy Blue, Magenta Red & Cyan */
     --background: 0 0% 100%;
-    --foreground: 220 60% 15%;
+    --foreground: 220 50% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 60% 15%;
+    --card-foreground: 220 50% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 60% 15%;
+    --popover-foreground: 220 50% 18%;
 
-    /* Primary: Dark Red #8B1A1A */
-    --primary: 0 68% 32%;
+    /* Primary: Navy Blue */
+    --primary: 220 50% 18%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 0 68% 38%;
+    --primary-hover: 220 50% 25%;
 
-    /* Secondary: Navy Blue #1B2A4A */
-    --secondary: 220 45% 20%;
+    /* Secondary: Magenta Red */
+    --secondary: 340 80% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent: Cyan #00D4FF (matching logo) */
+    /* Accent: Cyan (matching logo) */
     --accent: 192 100% 50%;
-    --accent-foreground: 220 60% 15%;
+    --accent-foreground: 220 50% 18%;
     --accent-glow: 192 100% 60%;
 
-    --muted: 220 20% 95%;
+    --muted: 220 15% 95%;
     --muted-foreground: 220 15% 46%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 340 80% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 90%;
-    --input: 220 20% 90%;
-    --ring: 0 68% 32%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 192 100% 50%;
 
     --radius: 0.75rem;
 
     /* Custom Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0, 68%, 32%), hsl(220, 45%, 20%));
-    --gradient-hero: linear-gradient(180deg, hsl(220, 45%, 15%), hsl(220, 45%, 20%));
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(220, 20%, 97%));
+    --gradient-primary: linear-gradient(135deg, hsl(220, 50%, 18%), hsl(340, 80%, 45%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 50%, 14%), hsl(220, 50%, 20%));
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%), hsl(220, 15%, 97%));
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(0 68% 32% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 45% 20% / 0.1);
-    --shadow-elevated: 0 20px 50px -10px hsl(220 45% 20% / 0.2);
+    --shadow-glow: 0 0 40px hsl(192 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 50% 18% / 0.1);
+    --shadow-elevated: 0 20px 50px -10px hsl(220 50% 18% / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,38 +62,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 45% 8%;
+    --background: 220 50% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 220 45% 12%;
+    --card: 220 50% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 45% 12%;
+    --popover: 220 50% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 68% 40%;
+    --primary: 340 80% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 0 68% 48%;
+    --primary-hover: 340 80% 58%;
 
-    --secondary: 220 45% 25%;
+    --secondary: 220 50% 25%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 192 100% 50%;
-    --accent-foreground: 220 45% 15%;
+    --accent-foreground: 220 50% 15%;
     --accent-glow: 192 100% 70%;
 
     --muted: 220 40% 20%;
     --muted-foreground: 220 20% 65%;
 
-    --destructive: 0 62.8% 50.6%;
+    --destructive: 340 80% 50%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 220 40% 20%;
     --input: 220 40% 20%;
-    --ring: 0 68% 40%;
+    --ring: 192 100% 50%;
 
-    --gradient-hero: linear-gradient(180deg, hsl(220, 45%, 8%), hsl(220, 45%, 12%));
-    --gradient-card: linear-gradient(145deg, hsl(220, 45%, 12%), hsl(220, 40%, 15%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 50%, 8%), hsl(220, 50%, 12%));
+    --gradient-card: linear-gradient(145deg, hsl(220, 50%, 12%), hsl(220, 40%, 15%));
   }
 }
 
