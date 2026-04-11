@@ -46,18 +46,21 @@ const Navbar = () => {
     ? [...navItems, { name: "Dashboard", path: "/dashboard" }]
     : navItems;
 
+  const easeOut = [0, 0, 0.2, 1] as const;
+  const easeInOut = [0.4, 0, 0.2, 1] as const;
+
   const navLinkVariants = {
     initial: { opacity: 0, y: -8 },
     animate: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.1 + i * 0.05, duration: 0.3, ease: "easeOut" },
+      transition: { delay: 0.1 + i * 0.05, duration: 0.3, ease: easeOut },
     }),
   };
 
   const mobileMenuVariants = {
-    hidden: { opacity: 0, height: 0, transition: { duration: 0.25, ease: "easeInOut" } },
-    visible: { opacity: 1, height: "auto", transition: { duration: 0.35, ease: "easeOut" } },
+    hidden: { opacity: 0, height: 0, transition: { duration: 0.25, ease: easeInOut } },
+    visible: { opacity: 1, height: "auto" as const, transition: { duration: 0.35, ease: easeOut } },
   };
 
   const mobileItemVariants = {
@@ -65,7 +68,7 @@ const Navbar = () => {
     visible: (i: number) => ({
       opacity: 1,
       x: 0,
-      transition: { delay: 0.05 * i, duration: 0.25, ease: "easeOut" },
+      transition: { delay: 0.05 * i, duration: 0.25, ease: easeOut },
     }),
   };
 
