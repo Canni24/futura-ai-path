@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, Search, LogOut, User as UserIcon } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, type Variants, type Easing } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
