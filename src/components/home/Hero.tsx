@@ -12,14 +12,14 @@ const Hero = () => {
       }
     });
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary via-primary to-secondary">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0 opacity-40" style={{
+      <div className="absolute inset-0 z-0 opacity-10" style={{
       backgroundImage: `url(${heroImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center"
     }} />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-primary/80 via-primary/70 to-secondary/80" />
+      <div className="absolute inset-0 z-0 bg-background/60" />
 
       {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
@@ -33,7 +33,7 @@ const Hero = () => {
           y: 0
         }} transition={{
           duration: 0.6
-        }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent">
+        }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-secondary">
             <Sparkles className="h-4 w-4" />
             <span className="text-sm font-medium">Join 500K+ AI Learners</span>
           </motion.div>
@@ -48,7 +48,7 @@ const Hero = () => {
         }} transition={{
           duration: 0.6,
           delay: 0.2
-        }} className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight">
+        }} className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
             Unlock the Future with{" "}
             <span className="text-gradient">AI Skills</span> at FaxLab AI
           </motion.h1>
@@ -63,7 +63,7 @@ const Hero = () => {
         }} transition={{
           duration: 0.6,
           delay: 0.4
-        }} className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
+        }} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Master machine learning, generative AI, and ethical tech through practical,
             self-paced courses designed for beginners to pros. Transform your career today.
           </motion.p>
@@ -80,12 +80,12 @@ const Hero = () => {
           delay: 0.6
         }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/courses">
-              <Button size="lg" className="bg-accent text-primary hover:bg-accent-glow glow-effect group">
+              <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 glow-effect group">
                 Explore Courses
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 smooth-transition" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-primary" onClick={handleGetStartedFree}>
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" onClick={handleGetStartedFree}>
               Get Started Free
             </Button>
           </motion.div>
@@ -114,8 +114,8 @@ const Hero = () => {
             value: "24/7",
             label: "Support"
           }].map((stat, index) => <div key={index} className="space-y-1">
-                <div className="text-3xl md:text-4xl font-bold text-accent">{stat.value}</div>
-                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-secondary">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>)}
           </motion.div>
         </div>
