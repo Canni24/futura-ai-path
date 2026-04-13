@@ -78,10 +78,10 @@ const Navbar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
-        className={`w-full max-w-6xl rounded-2xl border border-accent/20 backdrop-blur-xl transition-all duration-500 ${
+        className={`w-full max-w-6xl rounded-2xl border backdrop-blur-2xl transition-all duration-500 ${
           scrolled
-            ? "bg-primary/98 shadow-2xl shadow-accent/10 border-accent/30"
-            : "bg-primary/90 shadow-lg shadow-black/10"
+            ? "bg-primary/80 shadow-2xl shadow-accent/15 border-accent/30 backdrop-saturate-150"
+            : "bg-primary/60 shadow-lg shadow-black/10 border-white/10 backdrop-saturate-125"
         }`}
       >
         <div className="px-4 sm:px-6 lg:px-8">
