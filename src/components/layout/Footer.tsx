@@ -20,8 +20,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground border-t border-accent/20">
-      <div className="container mx-auto px-4 lg:px-8 py-12">
+    <footer className="text-primary-foreground px-3 sm:px-4 pb-4">
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] }}
+        className="max-w-6xl mx-auto rounded-2xl border border-white/10 bg-primary/60 backdrop-blur-2xl backdrop-saturate-125 shadow-lg shadow-black/10 px-6 lg:px-10 py-12"
+      >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
@@ -105,7 +111,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };
