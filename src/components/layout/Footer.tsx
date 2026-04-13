@@ -111,7 +111,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };
