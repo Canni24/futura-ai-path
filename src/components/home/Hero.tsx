@@ -86,9 +86,9 @@ const Hero = () => {
           delay: 0.2
         }} className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight">
             Unlock the Future with{" "}
-            <span className="text-gradient inline-block min-w-[200px] md:min-w-[300px] text-left">
+            <span className="text-accent inline-block min-w-[200px] md:min-w-[300px] text-left">
               {displayText}
-              <span className="animate-pulse text-accent">|</span>
+              <span className="animate-pulse">|</span>
             </span>
             {" "}at FaxLab AI
           </motion.h1>
