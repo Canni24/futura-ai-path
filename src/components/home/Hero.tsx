@@ -1,10 +1,46 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import heroImage from "@/assets/hero-neural-network.jpg";
+
+const ROTATING_WORDS = ["AI Skills", "Your Career", "Your Business", "Your Socials", "The Future"];
+
 const Hero = () => {
   const navigate = useNavigate();
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const currentWord = ROTATING_WORDS[wordIndex];
+
+  useEffect(() => {
+    const typeSpeed = isDeleting ? 50 : 100;
+    const pauseTime = isDeleting ? 200 : 2000;
+
+    if (!isDeleting && displayText === currentWord) {
+      const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText(
+        isDeleting
+          ? currentWord.substring(0, displayText.length - 1)
+          : currentWord.substring(0, displayText.length + 1)
+      );
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentWord]);
+
   const handleGetStartedFree = () => {
     navigate("/courses", {
       state: {
@@ -50,7 +86,11 @@ const Hero = () => {
           delay: 0.2
         }} className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight">
             Unlock the Future with{" "}
-            <span className="text-gradient">AI Skills</span> at FaxLab AI
+            <span className="text-gradient inline-block min-w-[200px] md:min-w-[300px] text-left">
+              {displayText}
+              <span className="animate-pulse text-accent">|</span>
+            </span>
+            {" "}at FaxLab AI
           </motion.h1>
 
           {/* Subheading */}
