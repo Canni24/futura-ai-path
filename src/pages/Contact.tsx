@@ -13,14 +13,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    content: "ra@faxlab.in",
-    description: "Reach out to RA",
-  },
-  {
-    icon: Mail,
-    title: "Email Us",
-    content: "chandra@faxlab.in",
-    description: "Reach out to Chandra",
+    content: "ra@faxlab.in\nchandra@faxlab.in",
+    description: "We'll respond within 24 hours",
   },
   {
     icon: MessageSquare,
@@ -106,7 +100,9 @@ const Contact = () => {
                     <info.icon className="h-6 w-6 text-accent" />
                   </div>
                   <h3 className="font-semibold mb-2">{info.title}</h3>
-                  <p className="text-accent font-medium mb-1">{info.content}</p>
+                  {info.content.split('\n').map((line, i) => (
+                    <p key={i} className="text-accent font-medium mb-1">{line}</p>
+                  ))}
                   <p className="text-sm text-muted-foreground">{info.description}</p>
                 </Card>
               </motion.div>
