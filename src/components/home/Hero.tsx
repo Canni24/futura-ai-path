@@ -9,6 +9,38 @@ const ROTATING_WORDS = ["AI Skills", "Your Career", "Your Business", "Your Socia
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const currentWord = ROTATING_WORDS[wordIndex];
+
+  useEffect(() => {
+    const typeSpeed = isDeleting ? 50 : 100;
+    const pauseTime = isDeleting ? 200 : 2000;
+
+    if (!isDeleting && displayText === currentWord) {
+      const timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText(
+        isDeleting
+          ? currentWord.substring(0, displayText.length - 1)
+          : currentWord.substring(0, displayText.length + 1)
+      );
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentWord]);
+
   const handleGetStartedFree = () => {
     navigate("/courses", {
       state: {
