@@ -1,8 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import heroImage from "@/assets/hero-neural-network.jpg";
+
+const ROTATING_WORDS = ["AI Skills", "Your Career", "Your Business", "Your Socials", "The Future"];
+
 const Hero = () => {
   const navigate = useNavigate();
   const handleGetStartedFree = () => {
