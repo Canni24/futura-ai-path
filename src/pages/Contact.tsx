@@ -13,8 +13,14 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    content: "support@faxlab.ai",
-    description: "We'll respond within 24 hours",
+    content: "ra@faxlab.in",
+    description: "Reach out to RA",
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    content: "chandra@faxlab.in",
+    description: "Reach out to Chandra",
   },
   {
     icon: MessageSquare,
