@@ -69,7 +69,7 @@ const Hero = () => {
           y: 0
         }} transition={{
           duration: 0.6
-        }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent">
+        }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-accent">
             <Sparkles className="h-4 w-4" />
             <span className="text-sm font-medium">Join 500K+ AI Learners</span>
           </motion.div>
@@ -120,7 +120,7 @@ const Hero = () => {
           delay: 0.6
         }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/courses">
-              <Button size="lg" className="bg-accent text-primary hover:bg-accent-glow glow-effect group">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary-hover glow-effect group">
                 Explore Courses
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 smooth-transition" />
               </Button>

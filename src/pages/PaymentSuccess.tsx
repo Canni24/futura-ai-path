@@ -191,7 +191,7 @@ const PaymentSuccess = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
-              className="flex-1 bg-accent text-primary hover:bg-accent-glow"
+              className="flex-1 bg-primary text-white hover:bg-primary-hover"
               onClick={() => navigate("/courses")}
             >
               Start Learning

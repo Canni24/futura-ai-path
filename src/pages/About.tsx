@@ -156,7 +156,7 @@ const About = () => {
               {stats.map((stat, index) => (
                 <Card
                   key={index}
-                  className="p-6 text-center hover-lift bg-gradient-to-br from-card to-muted border-accent/20"
+                  className="p-6 text-center hover-lift bg-gradient-to-br from-card to-muted border-primary/20"
                 >
                   <stat.icon className="h-8 w-8 mx-auto mb-3 text-accent" />
                   <div className="text-3xl font-bold text-gradient">{stat.value}</div>
@@ -195,7 +195,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="p-6 hover-lift border-accent/20 h-full">
+                <Card className="p-6 hover-lift border-primary/20 h-full">
                   <h3 className="text-xl font-semibold mb-3 text-accent">
                     {value.title}
                   </h3>
@@ -230,7 +230,7 @@ const About = () => {
                 transition={{ duration: 0.6 }}
                 className="relative group"
               >
-                <div className="relative overflow-hidden rounded-2xl border-2 border-accent/20 shadow-elegant hover-lift">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-primary/20 shadow-elegant hover-lift">
                   <img 
                     src={founderImage} 
                     alt="Rishabh Agarwal - Founder & CEO of FaxLab AI"

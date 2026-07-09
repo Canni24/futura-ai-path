@@ -130,7 +130,7 @@ const SearchDialog = ({ open, onOpenChange }: SearchDialogProps) => {
               <div
                 key={course.id}
                 onClick={handleCourseClick}
-                className="flex gap-4 p-3 rounded-lg hover:bg-muted cursor-pointer transition-colors border border-transparent hover:border-accent/20"
+                className="flex gap-4 p-3 rounded-lg hover:bg-muted cursor-pointer transition-colors border border-transparent hover:border-primary/20"
               >
                 <img
                   src={course.image}

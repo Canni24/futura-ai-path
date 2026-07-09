@@ -70,11 +70,11 @@ const Features = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="p-6 hover-lift bg-gradient-to-br from-card to-muted border-accent/20 h-full">
+              <Card className="p-6 hover-lift bg-gradient-to-br from-card to-muted border-primary/20 h-full">
                 <div className="space-y-4">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent"
+                    className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-accent"
                   >
                     <feature.icon className="h-6 w-6" />
                   </motion.div>

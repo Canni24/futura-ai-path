@@ -214,7 +214,7 @@ const CourseDetail = () => {
               className="space-y-6"
             >
               <div className="flex items-center gap-3">
-                <Badge className="bg-accent text-primary">
+                <Badge className="bg-primary text-white">
                   {course.level || "Beginner"}
                 </Badge>
                 <Badge variant="outline" className="border-accent text-accent">
@@ -251,7 +251,7 @@ const CourseDetail = () => {
               <div className="flex items-center gap-4">
                 <Button
                   size="lg"
-                  className="bg-accent text-primary hover:bg-accent-glow"
+                  className="bg-primary text-white hover:bg-primary-hover"
                   onClick={handleEnroll}
                 >
                   {enrollment ? "Go to Dashboard" : course.price === 0 || course.is_free ? "Enroll Free" : `Enroll Now - ₹${Number(course.price).toLocaleString()}`}
@@ -297,7 +297,7 @@ const CourseDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <Card className="border-accent/20">
+                <Card className="border-primary/20">
                   <CardContent className="p-6">
                     <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                       <TrendingUp className="h-6 w-6 text-accent" />
@@ -328,7 +328,7 @@ const CourseDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <Card className="border-accent/20">
+                <Card className="border-primary/20">
                   <CardContent className="p-6">
                     <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                       <BookOpen className="h-6 w-6 text-accent" />
@@ -338,10 +338,10 @@ const CourseDetail = () => {
                       {curriculum.map((module, index) => (
                         <div
                           key={module.id}
-                          className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/50 smooth-transition border border-transparent hover:border-accent/20"
+                          className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/50 smooth-transition border border-transparent hover:border-primary/20"
                         >
                           <div className="flex items-center gap-4">
-                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent font-semibold text-sm">
+                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-accent font-semibold text-sm">
                               {index + 1}
                             </div>
                             <div>
@@ -366,7 +366,7 @@ const CourseDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <Card className="border-accent/20">
+                <Card className="border-primary/20">
                   <CardContent className="p-6">
                     <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                       <Star className="h-6 w-6 text-accent" />
@@ -377,7 +377,7 @@ const CourseDetail = () => {
                         <div key={review.id}>
                           <div className="flex items-start gap-4">
                             <Avatar>
-                              <AvatarFallback className="bg-accent text-primary">
+                              <AvatarFallback className="bg-primary text-white">
                                 {review.author.charAt(0)}
                               </AvatarFallback>
                             </Avatar>
@@ -424,7 +424,7 @@ const CourseDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Card className="border-accent/20 sticky top-24">
+                <Card className="border-primary/20 sticky top-24">
                   <CardContent className="p-6 space-y-4">
                     <h3 className="text-xl font-bold">Course Includes</h3>
                     <Separator />
@@ -452,7 +452,7 @@ const CourseDetail = () => {
                     </div>
                     <Separator />
                     <Button
-                      className="w-full bg-accent text-primary hover:bg-accent-glow"
+                      className="w-full bg-primary text-white hover:bg-primary-hover"
                       onClick={handleEnroll}
                     >
                       {enrollment ? "Continue Learning" : course.price === 0 || course.is_free ? "Enroll Free" : "Enroll Now"}
@@ -467,7 +467,7 @@ const CourseDetail = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <Card className="border-accent/20">
+                <Card className="border-primary/20">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold mb-4">Instructor</h3>
                     <div className="flex items-start gap-4">

@@ -97,8 +97,8 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className={`p-6 text-center hover-lift border-accent/20 ${isOffice ? "border-l-4 border-l-accent glow-effect" : ""}`}>
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 ${isOffice ? "bg-accent" : "bg-accent/10"}`}>
+                  <Card className={`p-6 text-center hover-lift border-primary/20 ${isOffice ? "border-l-4 border-l-accent glow-effect" : ""}`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 ${isOffice ? "bg-accent" : "bg-primary/10"}`}>
                       <info.icon className={`h-6 w-6 ${isOffice ? "text-white" : "text-accent"}`} />
                     </div>
                     <h3 className={`font-semibold mb-2 ${isOffice ? "text-accent" : ""}`}>{info.title}</h3>
@@ -125,7 +125,7 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="p-8 border-accent/20">
+              <Card className="p-8 border-primary/20">
                 <h2 className="text-2xl font-bold mb-6 text-gradient">Send us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
@@ -181,7 +181,7 @@ const Contact = () => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-accent text-primary hover:bg-accent-glow"
+                    className="w-full bg-primary text-white hover:bg-primary-hover"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

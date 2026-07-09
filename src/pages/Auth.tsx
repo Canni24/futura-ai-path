@@ -81,7 +81,7 @@ const Auth = () => {
           </span>
         </Link>
 
-        <Card className="border-accent/20 shadow-elevated">
+        <Card className="border-primary/20 shadow-elevated">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold text-center">
               {isSignUp ? "Create an account" : "Welcome back"}
@@ -164,7 +164,7 @@ const Auth = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-accent text-primary hover:bg-accent-glow"
+                className="w-full bg-primary text-white hover:bg-primary-hover"
                 size="lg"
                 disabled={loading}
               >

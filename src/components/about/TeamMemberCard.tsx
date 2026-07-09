@@ -45,7 +45,7 @@ const TeamMemberCard = ({
       >
         {/* Front Side */}
         <div
-          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden border-2 border-accent/20 bg-card shadow-lg"
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden border-2 border-primary/20 bg-card shadow-lg"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="relative h-[240px] overflow-hidden">
@@ -65,7 +65,7 @@ const TeamMemberCard = ({
 
         {/* Back Side */}
         <div
-          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden border-2 border-accent/30 bg-gradient-to-br from-primary to-secondary shadow-xl flex flex-col justify-center items-center p-6 text-center"
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary to-secondary shadow-xl flex flex-col justify-center items-center p-6 text-center"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -95,7 +95,7 @@ const TeamMemberCard = ({
               href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-lg hover:bg-accent-glow transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-accent/40"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-lg hover:bg-primary-hover transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-primary/40"
               onClick={(e) => e.stopPropagation()}
             >
               <LinkedInIcon />

@@ -241,7 +241,7 @@ const Checkout = () => {
 
                   <Button
                     type="submit"
-                    className="w-full bg-accent text-primary hover:bg-accent-glow"
+                    className="w-full bg-primary text-white hover:bg-primary-hover"
                     size="lg"
                     disabled={isProcessing}
                   >
