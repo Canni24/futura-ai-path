@@ -210,7 +210,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="aspect-video rounded-lg overflow-hidden border border-accent/20">
+            <div className="aspect-video rounded-lg overflow-hidden border-2 border-accent shadow-glow">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118153.97685802072!2d73.10572565!3d22.30731785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab91a3ddab%3A0x49585e95a35e3a0!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                 width="100%"
