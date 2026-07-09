@@ -88,27 +88,30 @@ const Contact = () => {
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="p-6 text-center hover-lift border-accent/20">
-                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <info.icon className="h-6 w-6 text-accent" />
-                  </div>
-                  <h3 className="font-semibold mb-2">{info.title}</h3>
-                  <div className="space-y-1">
-                    {info.content.split('\n').map((line, i) => (
-                      <p key={i} className="text-accent font-medium">{line}</p>
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground">{info.description}</p>
-                </Card>
-              </motion.div>
-            ))}
+            {contactInfo.map((info, index) => {
+              const isOffice = info.title === "Office";
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className={`p-6 text-center hover-lift border-accent/20 ${isOffice ? "border-l-4 border-l-accent glow-effect" : ""}`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 ${isOffice ? "bg-accent" : "bg-accent/10"}`}>
+                      <info.icon className={`h-6 w-6 ${isOffice ? "text-white" : "text-accent"}`} />
+                    </div>
+                    <h3 className={`font-semibold mb-2 ${isOffice ? "text-accent" : ""}`}>{info.title}</h3>
+                    <div className="space-y-1">
+                      {info.content.split('\n').map((line, i) => (
+                        <p key={i} className="text-accent font-medium">{line}</p>
+                      ))}
+                    </div>
+                    <p className="text-sm text-muted-foreground">{info.description}</p>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -207,7 +210,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="aspect-video rounded-lg overflow-hidden border border-accent/20">
+            <div className="aspect-video rounded-lg overflow-hidden border-2 border-accent shadow-glow">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118153.97685802072!2d73.10572565!3d22.30731785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab91a3ddab%3A0x49585e95a35e3a0!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                 width="100%"
