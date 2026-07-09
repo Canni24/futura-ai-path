@@ -130,7 +130,7 @@ const CoursesPreview = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <Card
-                className="overflow-hidden group border-accent/20 cursor-pointer h-full flex flex-col bg-card hover:shadow-xl hover:shadow-accent/10 transition-shadow duration-300"
+                className="overflow-hidden group border-primary/20 cursor-pointer h-full flex flex-col bg-card hover:shadow-xl hover:shadow-primary/10 transition-shadow duration-300"
                 onClick={() => navigate(`/courses/${course.id}`)}
               >
                 <div className="relative overflow-hidden">
@@ -142,7 +142,7 @@ const CoursesPreview = () => {
                     transition={{ duration: 0.6 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <Badge className="absolute top-3 right-3 bg-accent text-primary border-0 font-bold text-sm">
+                  <Badge className="absolute top-3 right-3 bg-primary text-white border-0 font-bold text-sm">
                     {course.price}
                   </Badge>
                   <Badge variant="secondary" className="absolute top-3 left-3 bg-primary/80 text-primary-foreground border-0 text-xs backdrop-blur-sm">
@@ -154,7 +154,7 @@ const CoursesPreview = () => {
                   <h3 className="text-lg font-bold group-hover:text-accent transition-colors duration-200 line-clamp-1">
                     {course.title}
                   </h3>
-                  <Badge variant="outline" className="w-fit text-xs border-accent/30 text-muted-foreground">
+                  <Badge variant="outline" className="w-fit text-xs border-primary/30 text-muted-foreground">
                     {course.category}
                   </Badge>
                 </CardHeader>
@@ -184,7 +184,7 @@ const CoursesPreview = () => {
                     </div>
                   </div>
                   <Button
-                    className="w-full bg-accent text-primary hover:bg-accent-glow group/btn"
+                    className="w-full bg-primary text-white hover:bg-primary-hover group/btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/courses/${course.id}`);

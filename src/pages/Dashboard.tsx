@@ -159,7 +159,7 @@ const Dashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     Enrolled Courses
@@ -180,7 +180,7 @@ const Dashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     Completed
@@ -201,7 +201,7 @@ const Dashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     Certificates
@@ -222,7 +222,7 @@ const Dashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     Learning Hours
@@ -248,7 +248,7 @@ const Dashboard = () => {
               transition={{ duration: 0.6 }}
               className="lg:col-span-1"
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-5 w-5 text-accent" />
@@ -301,7 +301,7 @@ const Dashboard = () => {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <GraduationCap className="h-5 w-5 text-accent" />
@@ -318,7 +318,7 @@ const Dashboard = () => {
                         return (
                           <div
                             key={enrollment.id}
-                            className="flex items-center gap-4 p-4 rounded-lg border border-accent/20 hover:border-accent/40 smooth-transition"
+                            className="flex items-center gap-4 p-4 rounded-lg border border-primary/20 hover:border-primary/40 smooth-transition"
                           >
                             <img
                               src={courseImages[course.title] || aiFundamentals}
@@ -329,7 +329,7 @@ const Dashboard = () => {
                               <div className="flex items-center justify-between">
                                 <h3 className="font-semibold">{course.title}</h3>
                                 {enrollment.completed && (
-                                  <Badge className="bg-accent text-primary">
+                                  <Badge className="bg-primary text-white">
                                     <CheckCircle2 className="h-3 w-3 mr-1" />
                                     Completed
                                   </Badge>
@@ -371,7 +371,7 @@ const Dashboard = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8"
             >
-              <Card className="border-accent/20">
+              <Card className="border-primary/20">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Award className="h-5 w-5 text-accent" />
@@ -383,7 +383,7 @@ const Dashboard = () => {
                     {certificates.map((cert: any) => (
                       <div
                         key={cert.id}
-                        className="p-6 rounded-lg border-2 border-accent/40 bg-gradient-to-br from-primary/10 to-accent/10 space-y-3"
+                        className="p-6 rounded-lg border-2 border-primary/40 bg-gradient-to-br from-primary/10 to-accent/10 space-y-3"
                       >
                         <Award className="h-8 w-8 text-accent" />
                         <h3 className="font-semibold">{cert.courses?.title}</h3>

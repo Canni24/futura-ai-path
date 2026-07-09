@@ -117,7 +117,7 @@ const Testimonials = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="h-full"
                   >
-                    <Card className="p-6 bg-secondary/20 border-accent/20 h-full backdrop-blur-sm hover:border-accent/40 transition-colors duration-300">
+                    <Card className="p-6 bg-secondary/20 border-primary/20 h-full backdrop-blur-sm hover:border-primary/40 transition-colors duration-300">
                       <div className="space-y-4">
                         <Quote className="h-8 w-8 text-accent opacity-50" />
 
@@ -134,10 +134,10 @@ const Testimonials = () => {
                           "{testimonial.content}"
                         </p>
 
-                        <div className="pt-4 border-t border-accent/20 flex items-center justify-between">
+                        <div className="pt-4 border-t border-primary/20 flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <Avatar>
-                              <AvatarFallback className="bg-accent text-primary font-semibold">
+                              <AvatarFallback className="bg-primary text-white font-semibold">
                                 {testimonial.avatar}
                               </AvatarFallback>
                             </Avatar>
@@ -162,8 +162,8 @@ const Testimonials = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center gap-4 mt-8">
-              <CarouselPrevious className="static translate-y-0 bg-accent/10 border-accent/30 text-accent hover:bg-accent hover:text-primary" />
-              <CarouselNext className="static translate-y-0 bg-accent/10 border-accent/30 text-accent hover:bg-accent hover:text-primary" />
+              <CarouselPrevious className="static translate-y-0 bg-primary/10 border-primary/30 text-accent hover:bg-accent hover:text-primary" />
+              <CarouselNext className="static translate-y-0 bg-primary/10 border-primary/30 text-accent hover:bg-accent hover:text-primary" />
             </div>
           </Carousel>
         </motion.div>
@@ -175,7 +175,7 @@ const Testimonials = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-accent/10 border border-accent/30 rounded-full">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 border border-primary/30 rounded-full">
             <span className="text-accent font-semibold">
               #1 New Release in AI Learning
             </span>

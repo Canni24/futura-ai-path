@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground border-t border-accent/20">
+    <footer className="bg-primary text-primary-foreground border-t border-primary/20">
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -79,9 +79,9 @@ const Footer = () => {
               <Input
                 type="email"
                 placeholder="Your email"
-                className="bg-secondary/20 border-accent/30 text-primary-foreground"
+                className="bg-secondary/20 border-primary/30 text-primary-foreground"
               />
-              <Button size="sm" className="bg-accent text-primary hover:bg-accent-glow">
+              <Button size="sm" className="bg-primary text-white hover:bg-primary-hover">
                 <Mail className="h-4 w-4" />
               </Button>
             </div>
@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-accent/20 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm opacity-80">© 2026 FaxLab AI. All rights reserved.</p>
           <div className="flex gap-4">
             {socialLinks.map((social) => (

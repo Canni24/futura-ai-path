@@ -2,116 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* FaxLab AI Design System — Light White & Navy Blue with minimal red */
+/* All colors MUST be HSL. */
 
 @layer base {
   :root {
-    /* FaxLab AI Design System - Metallic Black, Navy Blue, Dark Red & White */
-    /* Dark-first theme blended across the whole site */
-    --background: 220 20% 6%;
-    --foreground: 0 0% 98%;
+    /* Background: soft white with a subtle cool-blue undertone */
+    --background: 210 30% 97%;
+    --foreground: 220 50% 12%;
 
-    --card: 220 25% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 50% 12%;
 
-    --popover: 220 25% 9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 50% 12%;
 
     /* Primary: Deep Navy Blue */
-    --primary: 220 65% 16%;
+    --primary: 220 60% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 65% 22%;
+    --primary-hover: 220 60% 28%;
 
-    /* Secondary: Metallic Black/Graphite */
-    --secondary: 220 12% 18%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary: soft blue-grey */
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 220 40% 18%;
 
-    /* Accent: Dark Red / Crimson */
-    --accent: 358 72% 44%;
+    /* Accent: Navy Blue (replaces red as the main accent) */
+    --accent: 220 60% 24%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 358 82% 58%;
+    --accent-glow: 220 60% 32%;
 
-    --muted: 220 15% 14%;
-    --muted-foreground: 220 10% 68%;
+    --muted: 210 25% 94%;
+    --muted-foreground: 220 10% 45%;
 
-    --destructive: 358 75% 48%;
+    /* Destructive: reserved red for errors only */
+    --destructive: 358 72% 44%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 16%;
-    --ring: 358 72% 44%;
+    --border: 210 20% 90%;
+    --input: 210 20% 92%;
+    --ring: 220 60% 20%;
 
     --radius: 0.75rem;
 
-    /* Custom Gradients - metallic blend of black, navy & red */
-    --gradient-primary: linear-gradient(135deg, hsl(220 65% 16%), hsl(358 72% 44%));
-    --gradient-hero: linear-gradient(180deg, hsl(220 25% 5%) 0%, hsl(220 55% 10%) 55%, hsl(358 60% 18%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 22% 12%), hsl(220 18% 8%));
-    --gradient-metal: linear-gradient(135deg, hsl(220 15% 22%) 0%, hsl(220 20% 10%) 50%, hsl(220 15% 18%) 100%);
+    /* Gradients — white / navy blend */
+    --gradient-primary: linear-gradient(135deg, hsl(220 60% 20%), hsl(210 50% 35%));
+    --gradient-hero: linear-gradient(180deg, hsl(210 35% 98%) 0%, hsl(210 30% 96%) 50%, hsl(220 35% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 30% 98%));
+    --gradient-metal: linear-gradient(135deg, hsl(220 20% 90%) 0%, hsl(210 25% 95%) 50%, hsl(220 20% 92%) 100%);
 
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(358 72% 44% / 0.35);
-    --shadow-card: 0 10px 30px -10px hsl(220 60% 5% / 0.6);
-    --shadow-elevated: 0 20px 50px -10px hsl(358 72% 30% / 0.35);
+    /* Shadows — navy-tinted, no red glow */
+    --shadow-glow: 0 0 40px hsl(220 60% 20% / 0.12);
+    --shadow-card: 0 10px 30px -10px hsl(220 40% 10% / 0.08);
+    --shadow-elevated: 0 20px 50px -10px hsl(220 60% 20% / 0.12);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 358 72% 44%;
+    --sidebar-background: 210 30% 98%;
+    --sidebar-foreground: 220 40% 12%;
+    --sidebar-primary: 220 60% 20%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 20% 14%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 20% 16%;
-    --sidebar-ring: 358 72% 44%;
+    --sidebar-accent: 210 25% 94%;
+    --sidebar-accent-foreground: 220 40% 18%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 220 60% 20%;
   }
 
-  /* Light mode: white base with navy + dark red accents */
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 220 40% 10%;
+  /* Dark mode: deep navy-dark for pages that explicitly request it */
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 40% 10%;
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 10%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 220 65% 18%;
+    --primary: 220 60% 22%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 65% 24%;
+    --primary-hover: 220 60% 30%;
 
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 220 40% 12%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 98%;
 
-    --accent: 358 72% 44%;
+    --accent: 220 60% 26%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 358 82% 58%;
+    --accent-glow: 220 60% 34%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 40%;
+    --muted: 220 15% 16%;
+    --muted-foreground: 220 10% 65%;
 
-    --destructive: 358 75% 48%;
+    --destructive: 358 72% 44%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 90%;
-    --ring: 358 72% 44%;
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 220 60% 26%;
 
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 30% 96%) 60%, hsl(358 40% 92%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 20% 97%));
-  }
-
-  .dark {
-    /* Alias - already dark by default */
-    --background: 220 20% 6%;
-    --foreground: 0 0% 98%;
+    --gradient-hero: linear-gradient(180deg, hsl(220 30% 8%) 0%, hsl(220 35% 12%) 50%, hsl(220 40% 16%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 14%), hsl(220 20% 10%));
   }
 }
-
 
 @layer base {
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');

@@ -80,7 +80,7 @@ const Navbar = () => {
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
         className={`w-full max-w-6xl rounded-2xl border backdrop-blur-2xl transition-all duration-500 ${
           scrolled
-            ? "bg-primary/80 shadow-2xl shadow-accent/15 border-accent/30 backdrop-saturate-150"
+            ? "bg-primary/80 shadow-2xl shadow-primary/15 border-primary/30 backdrop-saturate-150"
             : "bg-primary/60 shadow-lg shadow-black/10 border-white/10 backdrop-saturate-125"
         }`}
       >
@@ -130,7 +130,7 @@ const Navbar = () => {
                     to={item.path}
                     className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       location.pathname === item.path
-                        ? "text-accent bg-accent/10"
+                        ? "text-accent bg-primary/10"
                         : "text-primary-foreground/80 hover:text-accent hover:bg-accent/5"
                     }`}
                   >
@@ -153,7 +153,7 @@ const Navbar = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-primary-foreground/80 hover:text-accent hover:bg-accent/10 rounded-xl"
+                  className="text-primary-foreground/80 hover:text-accent hover:bg-primary/10 rounded-xl"
                   onClick={() => setSearchOpen(true)}
                 >
                   <Search className="h-4 w-4" />
@@ -165,7 +165,7 @@ const Navbar = () => {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="relative h-9 w-9 rounded-full">
                       <Avatar className="h-9 w-9">
-                        <AvatarFallback className="bg-accent text-primary text-sm font-semibold">
+                        <AvatarFallback className="bg-primary text-white text-sm font-semibold">
                           {user.email?.charAt(0).toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
@@ -198,7 +198,7 @@ const Navbar = () => {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-accent/10 rounded-xl text-sm"
+                      className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary/10 rounded-xl text-sm"
                       onClick={() => navigate("/auth")}
                     >
                       Login
@@ -207,7 +207,7 @@ const Navbar = () => {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button
                       size="sm"
-                      className="bg-accent text-primary hover:bg-accent-glow rounded-xl text-sm font-semibold shadow-lg shadow-accent/20"
+                      className="bg-primary text-white hover:bg-primary-hover rounded-xl text-sm font-semibold shadow-lg shadow-primary/20"
                       onClick={() => navigate("/auth")}
                     >
                       Get Started
@@ -221,7 +221,7 @@ const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-primary-foreground hover:text-accent p-2 rounded-xl hover:bg-accent/10 transition-colors"
+              className="md:hidden text-primary-foreground hover:text-accent p-2 rounded-xl hover:bg-primary/10 transition-colors"
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
@@ -259,7 +259,7 @@ const Navbar = () => {
                 exit="hidden"
                 className="md:hidden overflow-hidden"
               >
-                <div className="py-3 space-y-1 border-t border-accent/15">
+                <div className="py-3 space-y-1 border-t border-primary/15">
                   {userNavItems.map((item, i) => (
                     <motion.div
                       key={item.name}
@@ -273,7 +273,7 @@ const Navbar = () => {
                         onClick={() => setIsOpen(false)}
                         className={`block px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                           location.pathname === item.path
-                            ? "text-accent bg-accent/10"
+                            ? "text-accent bg-primary/10"
                             : "text-primary-foreground/80 hover:text-accent hover:bg-accent/5"
                         }`}
                       >
@@ -287,12 +287,12 @@ const Navbar = () => {
                     variants={mobileItemVariants}
                     initial="hidden"
                     animate="visible"
-                    className="flex items-center gap-2 pt-3 px-1 border-t border-accent/15 mt-2"
+                    className="flex items-center gap-2 pt-3 px-1 border-t border-primary/15 mt-2"
                   >
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-primary-foreground/80 hover:text-accent hover:bg-accent/10 rounded-xl"
+                      className="text-primary-foreground/80 hover:text-accent hover:bg-primary/10 rounded-xl"
                       onClick={() => setSearchOpen(true)}
                     >
                       <Search className="h-4 w-4 mr-2" />
@@ -315,7 +315,7 @@ const Navbar = () => {
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="justify-start rounded-xl text-primary-foreground/80 hover:bg-accent/10"
+                          className="justify-start rounded-xl text-primary-foreground/80 hover:bg-primary/10"
                           onClick={() => {
                             navigate("/profile");
                             setIsOpen(false);
@@ -352,7 +352,7 @@ const Navbar = () => {
                         </Button>
                         <Button
                           size="sm"
-                          className="flex-1 bg-accent text-primary hover:bg-accent-glow rounded-xl font-semibold shadow-lg shadow-accent/20"
+                          className="flex-1 bg-primary text-white hover:bg-primary-hover rounded-xl font-semibold shadow-lg shadow-primary/20"
                           onClick={() => {
                             navigate("/auth");
                             setIsOpen(false);

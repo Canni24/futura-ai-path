@@ -175,7 +175,7 @@ const Profile = () => {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
               <div className="relative group">
                 <Avatar className="h-24 w-24 border-4 border-accent">
-                  <AvatarFallback className="bg-accent text-primary text-3xl">
+                  <AvatarFallback className="bg-primary text-white text-3xl">
                     {profile?.full_name?.charAt(0)?.toUpperCase() || profile?.email?.charAt(0)?.toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
@@ -316,7 +316,7 @@ const Profile = () => {
                                 </div>
                               </div>
                               {enrollment.completed && (
-                                <Badge className="bg-accent text-primary">
+                                <Badge className="bg-primary text-white">
                                   <Award className="h-3 w-3 mr-1" />
                                   Completed
                                 </Badge>
